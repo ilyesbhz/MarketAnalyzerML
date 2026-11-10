@@ -1,0 +1,31 @@
+﻿job_id,title,seniority_llm,seniority_rules,seniority_pred,tools_llm,tools_rules,tools_pred,skills_pred,remote_pred,parse_failed,seconds,prompt_tokens,output_tokens,model
+2040953,Technicien en Maintenance Électrique,unspecified,unspecified,unspecified,,,,,unspecified,False,12.64,459,23,qwen2.5:7b
+2047644,technicien maintenance moule et outillage confirmé,mid,senior,senior,,,,maintenance|moules|outillages|nettoyage|entretien|réparation|ajustage|polissage,unspecified,False,2.5,578,58,qwen2.5:7b
+1968865,Life Sciences Statistician,senior,unspecified,senior,sas|r,,SAS|R,statistical analysis|clinical trial|meta-analysis|programming|reporting|presentation|methodological research,unspecified,False,2.38,559,56,qwen2.5:7b
+2032267,Aide Soignante,unspecified,unspecified,unspecified,,,,,unspecified,False,1.21,529,23,qwen2.5:7b
+2046403,Consultant logiciels de Gestion / SIRH,unspecified,senior,senior,,,,,unspecified,False,1.15,520,23,qwen2.5:7b
+2051444,Gestionnaire ( Magasinier homme ),unspecified,unspecified,unspecified,,,,,unspecified,False,1.06,423,23,qwen2.5:7b
+2058752,Community Manager / Graphic Designer,unspecified,unspecified,unspecified,intelligent artificielle,,,community management|graphic design|content creation|visual design|video editing|digital trends|content adaptation|statistical analysis,unspecified,False,2.64,508,62,qwen2.5:7b
+1963350,Electrician,unspecified,unspecified,unspecified,,,,install electrical systems|maintain electrical systems|repair electrical systems|diagnose electrical issues|comply with codes|safety standards|communicate effectively|perform inspections,unspecified,False,2.66,454,65,qwen2.5:7b
+2051796,Enseignante de Français Langue Etrangère (FLE),unspecified,unspecified,unspecified,,,,,unspecified,False,1.18,523,23,qwen2.5:7b
+1844154,Front Office Coordinator,junior,unspecified,unspecified,word|excel|outlook,Microsoft Office|Word|Excel|Outlook,Microsoft Office|Word|Excel|Outlook,communication skills|organizational skills|attention to detail|multitasking|professional demeanor,onsite,False,2.37,507,54,qwen2.5:7b
+2057093,Chargé recouvrement Nabeul,unspecified,unspecified,unspecified,,,,,unspecified,False,1.33,800,23,qwen2.5:7b
+2049948,Responsable Magasin Produits Chimiques.,manager,manager,manager,,,,magasin|produits chimiques|sécurité|stockage|production|achats|qualité,unspecified,False,2.31,504,52,qwen2.5:7b
+2057372,Technico commercial pour la vente des moyens de mesures et de de contrôle,mid,mid,mid,,,,vente|moyens de mesure|contrôle|materiels industriels,unspecified,False,1.98,419,44,qwen2.5:7b
+1945731,Ingénieur Qualité Fournisseurs,unspecified,unspecified,unspecified,,,,,unspecified,False,1.19,481,23,qwen2.5:7b
+2028277,"Responsable commerciale Showroom Revêtement, Robinetterie et Sanitaire - Sfax",unspecified,manager,manager,,,,conseiller clients|gérer commandes|suivre ventes|identifier besoins,unspecified,False,2.0,429,45,qwen2.5:7b
+2044196,Monteur Vidéo publicitaire,mid,unspecified,unspecified,,,,video production|creatives|quality control|data analysis|ai integration|production efficiency|format adaptation|content creation,unspecified,False,2.5,682,53,qwen2.5:7b
+2058734,Agent confirmé BtoB Energie,mid,senior,senior,,,,expérience en centre d'appel,unspecified,False,1.43,558,29,qwen2.5:7b
+1978595,Responsable Lean Management,manager,manager,manager,,,,lean management|project management|process improvement|quality management|environmental management|training|coaching|cross-functional collaboration,unspecified,False,2.42,756,54,qwen2.5:7b
+2054784,Responsable Administratif & Financier,manager,manager,manager,,,,leadership|rigueur|analyse|responsabilités,unspecified,False,1.83,558,38,qwen2.5:7b
+2045909,Chargée d'affaire,senior,unspecified,senior,,,,relationnelles|négociation|rigueur|organisation|autonomie|français|anglais|arabe,unspecified,False,3.04,706,71,qwen2.5:7b
+2051784,Vendeur(se) / Caissier(ère) – Librairie AFH 2 Nabeul,unspecified,unspecified,unspecified,,,,,unspecified,False,1.22,521,23,qwen2.5:7b
+2019261,Excursion Manager,unspecified,manager,manager,,,,,unspecified,False,1.07,395,23,qwen2.5:7b
+2053974,Développeur Python AI/ML,senior,unspecified,senior,,Python,Python,python|ai|ml|data science|analysis|modeling|api|optimization,unspecified,False,2.57,625,60,qwen2.5:7b
+2039627,English-Speaking International Commercial,unspecified,unspecified,unspecified,,,,english-speaking|international markets|negotiation|order monitoring|claim handling|communication,unspecified,False,2.05,596,46,qwen2.5:7b
+2032996,Société de prestations de services médicaux recrute 2 Technico-Commerciaux (Homme),unspecified,unspecified,unspecified,,,,,unspecified,False,1.11,447,23,qwen2.5:7b
+2059143,Assistant(e) Coordination Import,unspecified,unspecified,unspecified,,,,suivi administratif|vérification documents|saisie informations|coordination|échange clients|suivi expéditions|identification anomalies|classement documents,unspecified,False,3.23,812,72,qwen2.5:7b
+2014658,Qualiticienne Hygiéniste,unspecified,unspecified,unspecified,,,,contrôle qualité|hygiène|nettoyage|sécurité alimentaire|audit qualité|rapports|bonnes pratiques,unspecified,False,2.51,521,59,qwen2.5:7b
+2036115,MSI recrute 2 Gestionnaires Ressources Humaines,unspecified,unspecified,unspecified,,,,rigoureuses|organisées|écoute|échanges|gérer|professionnalisme|confidentialité|suivi,unspecified,False,2.57,639,57,qwen2.5:7b
+1825815,Ingenieur Affaires Reglementaires,junior,mid,mid,,,,analyse|synthese|rigueur|relationnel,unspecified,False,1.73,488,38,qwen2.5:7b
+2047677,Chef Comptable,manager,manager,manager,,,,accounting|financial reporting|internal controls|financial analysis|budgeting|forecasts|tax regulations|auditing,unspecified,False,2.36,543,53,qwen2.5:7b

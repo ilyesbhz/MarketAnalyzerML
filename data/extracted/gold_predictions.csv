@@ -1,0 +1,51 @@
+﻿job_id,title,seniority_llm,seniority_rules,seniority_pred,tools_llm,tools_rules,tools_pred,skills_pred,remote_pred,parse_failed,seconds,prompt_tokens,output_tokens,model
+2049901,Responsable Commercial,manager,manager,manager,,,,commercial strategy|market research|client relations|negotiation|sales|reporting,unspecified,False,11.39,599,45,qwen2.5:7b
+2050962,technicien Tricotage,unspecified,unspecified,unspecified,,,,tricotage|maillage|industrie textile|contrôle qualité|entretien machines|travail en équipe,unspecified,False,2.39,622,55,qwen2.5:7b
+2052164,Responsable gestion maintenance port,junior,manager,manager,,,,maintenance industrielle|sécurité|production|normes qualités|environnementales,unspecified,False,2.01,480,48,qwen2.5:7b
+2058502,Conseiller clientèle,junior,unspecified,unspecified,,,,communication|clientèle|produits|services|conseil|ventes|suivi|travail d'équipe,unspecified,False,2.45,606,56,qwen2.5:7b
+2053932,"Dans le cadre du renforcement de notre équipe, notre société spécialisée dans la livraison, recrute des jeunes filles sérieuses, dynamiques et motivées pour rejoindre son équipe.",junior,unspecified,unspecified,,,,,unspecified,False,1.17,452,23,qwen2.5:7b
+1875468,Assistante Administrative,unspecified,unspecified,unspecified,,,,,unspecified,False,1.14,466,23,qwen2.5:7b
+2042355,Chargé audit et traitements des réclamations,unspecified,unspecified,unspecified,,,,audit|réclamations|procédures|indicateurs|performance|amélioration|sensibilisation,unspecified,False,2.35,558,55,qwen2.5:7b
+2052315,Technicien(ne) support Informatique - N1/2,junior,mid,mid,,,,administration des postes|gestion des incidents|communication en français|sens du service|rigueur|esprit d'équipe|capacité d'analyse,unspecified,False,2.81,613,65,qwen2.5:7b
+2046350,Agent Commercial (Homme),junior,unspecified,unspecified,,,,commercial|sales|client management|market information,unspecified,False,1.66,429,36,qwen2.5:7b
+2047523,stage community manager / infographiste / marketing digital,intern,intern,intern,,,,créatif|dynamique|autonome|passionné|graphique|réseaux sociaux,unspecified,False,2.23,588,51,qwen2.5:7b
+2049391,Technicien(ne) en Prothèse Dentaire - Spécialisé en Céramage,unspecified,senior,senior,,,,prothèse dentaire|céramage|stratification|finition esthétique|matériaux|travail laboratoire|soigné|précis,unspecified,False,3.2,452,78,qwen2.5:7b
+2054419,COMMERCIAL EXPÉRIMENTÉ (Homme),senior,senior,senior,,,,commercial|client management|sales|market analysis|product promotion|customer service,unspecified,False,2.03,607,44,qwen2.5:7b
+2053893,enseignant ou enseignante d'anglais,unspecified,unspecified,unspecified,,,,,unspecified,False,1.18,437,23,qwen2.5:7b
+2058963,Responsable Maintenance Groupe,manager,manager,manager,,,,maintenance|piloter|diagnostiquer|prioriser|sécurité|conformité|planifier|suivre,unspecified,False,3.27,1124,68,qwen2.5:7b
+2058479,Technicien et/ou Technico-commercial,unspecified,unspecified,unspecified,,,,,unspecified,False,1.22,531,23,qwen2.5:7b
+2037076,Assistant (e) Comptable,junior,unspecified,unspecified,sap,SAP,SAP,comptabilité générale|saisie opérations|enregistrement factures|contrôle comptes|lettrage|suivi comptes|préparation rapports|suivi caisse,unspecified,False,6.83,864,164,qwen2.5:7b
+2050450,assistantes de direction,junior,junior,junior,,,,,unspecified,False,1.14,457,23,qwen2.5:7b
+2015151,Ingénieur Génie Civil,unspecified,unspecified,unspecified,,,,suivi des travaux|coordination|contrôle des chantiers|respect des délais|normes de qualité|sécurité|réglementations|études techniques,unspecified,False,3.23,491,69,qwen2.5:7b
+2057047,Responsable financier,manager,manager,manager,,,,finance|comptabilité|analyse financière|génération budgétaire|suivi trésorerie,unspecified,False,2.33,491,51,qwen2.5:7b
+2055755,Operations & Compliance Assistant,unspecified,unspecified,unspecified,,,,,unspecified,False,1.26,561,23,qwen2.5:7b
+2059485,Partner Accountant,unspecified,unspecified,unspecified,,,,accounting|reconciliation|invoicing|billing|communication,unspecified,False,2.13,544,41,qwen2.5:7b
+2059682,GRAPHISTE & MONTEUR(SE) VIDÉO,unspecified,unspecified,unspecified,photoshop|illustrator|indesign|premiere pro|davinci resolve|final cut pro|capcut,Photoshop|Illustrator|InDesign|Premiere Pro|DaVinci Resolve|Final Cut Pro|CapCut,Photoshop|Illustrator|InDesign|Premiere Pro|DaVinci Resolve|Final Cut Pro|CapCut,créativité|sens visuel|maîtrise montage|rigueur|rapidité|respect délais|idées|travail équipe,unspecified,False,4.42,741,95,qwen2.5:7b
+2054394,Magasinier homme,unspecified,unspecified,unspecified,,,,,unspecified,False,1.67,419,23,qwen2.5:7b
+2059684,Community Manager,unspecified,unspecified,unspecified,canva|capcut|photoshop|premiere,Meta Ads|Canva|CapCut|Photoshop,Meta Ads|Canva|CapCut|Photoshop|Premiere,marketing digital|communication|réactivité|créativité|organisation|rédaction|analyse statistiques|veille,unspecified,False,3.91,656,72,qwen2.5:7b
+2057101,Chef d'agence Kébili,manager,manager,manager,,,,management|supervision|client relations|finance|change management|reporting,unspecified,False,2.5,858,44,qwen2.5:7b
+2055596,Chef de Salle,manager,manager,manager,,,,superviseur|organisation|contrôle|hygiène|sécurité|inventaires,unspecified,False,2.15,512,50,qwen2.5:7b
+2047981,Technicienne en Esthétique,unspecified,unspecified,unspecified,,,,,unspecified,False,1.3,620,23,qwen2.5:7b
+2056981,Plombier,mid,mid,mid,,,,plomberie sanitaire|réseaux hydrauliques|travailler sur chantier|travailler en équipe,unspecified,False,3.47,436,53,qwen2.5:7b
+2052095,Marketing & Growth Lead (French Market),unspecified,manager,manager,,,,content quality|editing|digital pr|outreach|campaign planning|marketing support|prospect negotiation|system feedback,onsite,False,3.88,802,65,qwen2.5:7b
+2048413,Commercial(e) (H/F),junior,mid,mid,,,,communication|négociation|conviction|sens du contact|autonomie|organisation|rigueur,unspecified,False,4.01,648,63,qwen2.5:7b
+2059532,Technicien Informatique à Sousse,unspecified,unspecified,unspecified,,,,diagnostic matériel|diagnostic logiciel|remplacement de composants|micro-soudure|sauvegarde des données|restauration des données|rédaction du rapport d'intervention|gestion du stock,unspecified,False,5.04,751,78,qwen2.5:7b
+2054030,Aide Comptable,junior,unspecified,unspecified,excel|word,Excel|Word,Excel|Word,comptable|suivi factures|règlements|pièces comptables|trésorerie|banques|fournisseurs|clients,unspecified,False,4.6,463,70,qwen2.5:7b
+2057352,Responsable Magasin textile,manager,manager,manager,orli,,Orli,stock management|inventory control|team management|performance evaluation|logistics|production support,unspecified,False,2.58,649,48,qwen2.5:7b
+2057063,Technicien en génie électrique,unspecified,unspecified,unspecified,,,,électricité industrielle|câblage|raccordement|installations électriques|maintenance|schémas électriques|plans électriques|sécurité,unspecified,False,3.53,642,71,qwen2.5:7b
+2058604,English language Specialist,unspecified,unspecified,unspecified,,,,,unspecified,False,1.69,938,23,qwen2.5:7b
+2049823,Chef de Rang / Commis de Rang (Serveur),unspecified,unspecified,unspecified,,,,,unspecified,False,1.34,420,23,qwen2.5:7b
+2048506,Régleur junior,junior,junior,junior,,,,réglage|démarrage|machines de production|bon fonctionnement|équipements|dossiers de fabrication|encadrement|animation,unspecified,False,4.75,435,64,qwen2.5:7b
+1195518,Responsable SAV Automobile (Tunis),manager,manager,manager,,,,pilotage des activités|mise en place des plans|animation et encadrement|assurance de la satisfaction|gestion et fidélisation,unspecified,False,3.13,447,57,qwen2.5:7b
+2047663,Magasinier,unspecified,unspecified,unspecified,,,,réceptionner|contrôler|stockage|préparer|inventaires|suivi|propreté|sécurité,unspecified,False,2.86,491,60,qwen2.5:7b
+2040957,Sales Specialist (French Speaker),unspecified,unspecified,unspecified,internal software,,,international markets|negotiating|monitoring orders|handling claims|communication,unspecified,False,2.54,602,46,qwen2.5:7b
+2059033,Commerciale,unspecified,unspecified,unspecified,,,,marketing digital|création de contenu|réseaux sociaux|montage vidéo|analyse de performance,unspecified,False,3.38,584,50,qwen2.5:7b
+2054318,Comptable,unspecified,unspecified,unspecified,,,,,unspecified,False,1.35,418,23,qwen2.5:7b
+2058429,Ingénieur(e) Génie Civil F/H – Suivi de chantier & Coordination,unspecified,unspecified,unspecified,,,,suivi de chantier|coordination|contrôle de travaux|communication|respect des règles de sécurité,unspecified,False,2.77,547,51,qwen2.5:7b
+2050053,Responsable Hygiène,manager,manager,manager,,,,hygiène alimentaire|sécurité alimentaire|gestion de risques|conformité réglementaire|lutte contre nuisibles|système de management environnemental|veille technologique|investigations,unspecified,False,5.46,942,91,qwen2.5:7b
+2058463,Yolo Jeans recrute des Responsables Magasin,manager,manager,manager,,,,leadership|organisation|responsabilité|mode|contact client,unspecified,False,2.51,539,39,qwen2.5:7b
+2037106,Agent de Voyage – NIVEAU C1_C2 en FRANçAIS,unspecified,unspecified,unspecified,,,,service au client|conseil|réservation|appels entrants,unspecified,False,2.25,563,42,qwen2.5:7b
+2001923,Téléconseillers B2C & B2B Isolation à 1 € Marché Français à Sousse,junior,unspecified,unspecified,,,,prospection téléphonique,unspecified,False,2.24,539,30,qwen2.5:7b
+2050546,Consultant Senior en transformation des entreprises du secteur financier H/F,senior,senior,senior,,,,consultant|transformation|financières|stratégies|diagnostic|organisationnel|modernisation|optimisation,unspecified,False,2.73,816,56,qwen2.5:7b
+2050583,Business Developer CRM H/F,senior,senior,senior,crm|microsoft,,Microsoft,business development|sales|it solutions|b2b sales|complex sales|saas|cloud|pipeline management,unspecified,False,4.82,1194,95,qwen2.5:7b
+2059592,Chauffeur Semi-Remorque,unspecified,unspecified,unspecified,,,,,unspecified,False,1.31,504,23,qwen2.5:7b

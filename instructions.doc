@@ -1,0 +1,54 @@
+Collected jobs
+
+Scraped Tanitjobs.
+Collected additional jobs from the Adzuna API.
+Parsed and cleaned data
+
+Extracted titles, companies, salaries, locations, experience, and descriptions.
+Removed duplicates and standardized sectors.
+Stored everything in PostgreSQL
+
+Used tables for jobs, companies, sectors, sources, and extracted information.
+Loaded both Tanitjobs and Adzuna data into the same database.
+Extracted advanced information
+
+Used rules and a local Ollama LLM to find:
+Seniority
+Remote work type
+Tools
+Skills
+Evaluated the extraction
+
+Created labeled development and test samples.
+Compared LLM results and rule-based results using accuracy, precision, recall, and F1-score.
+Added salary analysis
+
+Standardized salaries into yearly values when possible.
+Distinguished real employer salaries from predicted Adzuna salaries.
+Compared salaries by country, sector, and seniority.
+Created analytics
+
+Prepared database views for market overview, sectors, tools, regions, salaries, and job trends.
+Defined these views in analytics.sql.
+Added automated daily processing
+
+run_daily.py runs collection, parsing, database loading, extraction, and quality checks automatically.
+Added data-quality monitoring
+
+checks.py checks for missing sectors, stale data, invalid dates, duplicates, salary errors, and failed pipeline steps.
+
+
+
+
+
+run : 
+Initialize the PostgreSQL database : python -m src.database.init_db
+Load Tanitjobs data : python -m src.database.load_tanitjobs
+Load Adzuna data : python -m src.database.load_adzuna
+Check database summaries : python -m src.database.summary
+Check analytics views : python -m src.database.show_views
+Run data-quality checks : python -m src.quality.checks
+Check extraction coverage : python -m src.database.summary
+Run LLM extraction : python -m src.extraction.llm_extract --gold
+for extraction : python -m src.database.extract_all 
+Run the complete daily pipeline : python -m src.pipeline.run_daily

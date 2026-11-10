@@ -1,0 +1,51 @@
+﻿job_id,title,company,primary_cat,tools,remote,seniority,review_note
+2049901,Responsable Commercial,Société Industrielle,Industrie,,unspecified,manager,
+2050962,technicien Tricotage,BEBE-CHEBIL,Textile,machines de tricotage,unspecified,unspecified,Only machines named; 'poste basé à Teboulba' does not say onsite explicitly
+2052164,Responsable gestion maintenance port,Teboulba tunisian Fish,Agroalimentaire,,unspecified,manager,
+2058502,Conseiller clientèle,Nutriglow,Vente,,unspecified,unspecified,
+2053932,"Dans le cadre du renforcement de notre équipe, notre société spécialisée dans la livraison, recrute des jeunes filles sérieuses, dynamiques et motivées pour rejoindre son équipe.",BIG BOSS EXPRESS,Administration,,unspecified,unspecified,Title is a whole sentence (scraping/posting quirk)
+1875468,Assistante Administrative,Groupe ZOUARI,Administration,,unspecified,unspecified,
+2042355,Chargé audit et traitements des réclamations,EL MAZRAA,Industrie,,unspecified,unspecified,
+2052315,Technicien(ne) support Informatique - N1/2,SEBAIXIA,Informatique,,unspecified,mid,"'outil IT' for tickets is generic, so no tool listed"
+2046350,Agent Commercial (Homme),Anonyme,Commerce,,unspecified,unspecified,
+2047523,stage community manager / infographiste / marketing digital,challenge,Marketing,,unspecified,intern,"Facebook/Instagram/LinkedIn are platforms, not listed as tools"
+2049391,Technicien(ne) en Prothèse Dentaire - Spécialisé en Céramage,AL MASSA,Sante,,unspecified,senior,'Expérience confirmée' -> senior
+2054419,COMMERCIAL EXPÉRIMENTÉ (Homme),Ste Gharbi Des Aliments Composés,Vente,,unspecified,senior,'expérimenté' / 'expérience confirmée' -> senior
+2053893,enseignant ou enseignante d'anglais,Lycée Privé Carthage Byrsa,Enseignement,,unspecified,unspecified,"Title says English, text also says Informatique teachers (mixed posting)"
+2058963,Responsable Maintenance Groupe,SINDBAD GROUPE,Transport,,unspecified,manager,
+2058479,Technicien et/ou Technico-commercial,ASTROLED,Electricité,,unspecified,unspecified,"Title says Technicien, text describes counter agent"
+2037076,Assistant (e) Comptable,Anonyme,Comptabilité,SAP,unspecified,unspecified,
+2050450,assistantes de direction,Achab Recruitment INTL,Administration,,unspecified,junior,"'jeunes diplômées', CIVP -> junior (WhatsApp is a channel, not listed)"
+2015151,Ingénieur Génie Civil,EL MAZRAA,Industrie,,unspecified,unspecified,
+2057047,Responsable financier,Anonyme,Finance,,unspecified,manager,Responsable + 5 ans: manager wins over senior
+2055755,Operations & Compliance Assistant,MS Solutions,Comptabilité,,unspecified,unspecified,
+2059485,Partner Accountant,Presto Technology,Comptabilité,,unspecified,unspecified,
+2059682,GRAPHISTE & MONTEUR(SE) VIDÉO,Innovative Spirit,Design,"Photoshop, Illustrator, InDesign, Premiere Pro, DaVinci Resolve, Final Cut Pro, CapCut",unspecified,unspecified,
+2054394,Magasinier homme,Sanabel Advanced de distribution en gros,Distribution,,unspecified,unspecified,
+2059684,Community Manager,Key nd Go,Hôtellerie et Tourisme,"Canva, CapCut, Photoshop, Premiere, Meta Ads",unspecified,unspecified,
+2057101,Chef d'agence Kébili,DAAM,Finance,,unspecified,manager,
+2055596,Chef de Salle,Ben Yaghlane,Agroalimentaire,,unspecified,manager,Chef de salle supervises a team -> manager
+2047981,Technicienne en Esthétique,DIDON CLINIC,Sante,,unspecified,unspecified,
+2056981,Plombier,Leaders Holding,Construction,,unspecified,mid,2 ans minimum -> mid
+2052095,Marketing & Growth Lead (French Market),OTOSPEX SOLUTIONS,Marketing,,onsite,manager,'Lead' with a future sub-team -> manager; 'Full In-Office' is explicit
+2048413,Commercial(e) (H/F),SC,Commerce,,unspecified,mid,2 ans minimum -> mid
+2059532,Technicien Informatique à Sousse,SAWEB ELC,Informatique,,unspecified,unspecified,Hardware repair only; no named software
+2054030,Aide Comptable,Bargaoui rideaux,Administration,"Excel, Word",unspecified,unspecified,
+2057352,Responsable Magasin textile,CHOMARAT CTC,Textile,Orli,unspecified,manager,"5S / Lean are methods, not tools"
+2057063,Technicien en génie électrique,GROUPE DE SERVICE INDUSTRIEL,Electricité,,unspecified,unspecified,
+2058604,English language Specialist,Société anonyme,Enseignement,,unspecified,unspecified,"'online and in-person classes' describes teaching, not the workplace"
+2049823,Chef de Rang / Commis de Rang (Serveur),Kyriad Prestige Tunis,Hôtellerie et Tourisme,,unspecified,unspecified,"Chef de Rang / Commis mix, so seniority unclear"
+2048506,Régleur junior,DECO SA,Automobile,,unspecified,junior,
+1195518,Responsable SAV Automobile (Tunis),Groupe ZOUARI,Automobile,,unspecified,manager,
+2047663,Magasinier,Talent Link,Electricité,ERP,unspecified,unspecified,
+2040957,Sales Specialist (French Speaker),Ozeol,Achat - Approvisionnement,,unspecified,unspecified,
+2059033,Commerciale,MWGTD,Design,,unspecified,unspecified,"Title says Commerciale, text is digital marketing/content"
+2054318,Comptable,LABORATOIRES NIHEL,Achat - Approvisionnement,,unspecified,unspecified,
+2058429,Ingénieur(e) Génie Civil F/H – Suivi de chantier & Coordination,Art of modern construction,Construction,,unspecified,unspecified,
+2050053,Responsable Hygiène,L'EPI D'OR,Agroalimentaire,,unspecified,manager,"ISO 14000 is a standard, not a tool"
+2058463,Yolo Jeans recrute des Responsables Magasin,Yolo jeans,Commerce,,unspecified,manager,Responsable + 3 ans: manager
+2037106,Agent de Voyage – NIVEAU C1_C2 en FRANçAIS,Harecom,Centres d'appels,,unspecified,unspecified,'expérimentée' but no number of years
+2001923,Téléconseillers B2C & B2B Isolation à 1 € Marché Français à Sousse,NRJ CALL,Centres d'appels,,unspecified,unspecified,Mixed: beginners (B2C) and experienced (B2B) in one posting
+2050546,Consultant Senior en transformation des entreprises du secteur financier H/F,EY (Ernst and Young),Comptabilité,,unspecified,senior,
+2050583,Business Developer CRM H/F,EY (Ernst and Young),Consulting,Microsoft,unspecified,senior,"'écosystème de Microsoft'; CRM is generic, so not listed"
+2059592,Chauffeur Semi-Remorque,Ste de Transport,Transport,,unspecified,unspecified,
