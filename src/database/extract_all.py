@@ -1,11 +1,4 @@
-"""Run the extraction (LLM + rules) on every usable Tanitjobs job and store the result.
-
-    python -m src.database.extract_all --limit 20     small check
-    python -m src.database.extract_all                everything not yet extracted
-
-Resumable: jobs already in core.job_extraction are skipped, so you can stop with Ctrl+C
-and run it again. Results are saved every 20 jobs. Ollama must be running.
-"""
+"""Extract structured attributes from usable Tanitjobs postings."""
 import argparse
 import time
 

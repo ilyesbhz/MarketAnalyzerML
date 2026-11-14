@@ -1,0 +1,34 @@
+{
+ "generated_at": "2026-11-14T14:13:59+00:00",
+ "rows": {
+  "market_overview": 3,
+  "sector_summary": 67,
+  "tool_demand": 178,
+  "seniority_mix": 117,
+  "salary_by_seniority": 6,
+  "region_summary": 117,
+  "daily_trend": 67,
+  "pay_percentile_by_sector": 23
+ },
+ "data_window": {
+  "fr": {
+   "first_posting": "2022-05-24",
+   "last_posting": "2026-11-13"
+  },
+  "gb": {
+   "first_posting": "2026-10-20",
+   "last_posting": "2026-11-13"
+  },
+  "tn": {
+   "first_posting": "2026-08-28",
+   "last_posting": "2026-11-12"
+  }
+ },
+ "caveats": [
+  "Salaries are yearly full-time-equivalent amounts. Tanitjobs gives monthly brackets (assumed monthly); Adzuna gives one number with no unit, so the unit is inferred from its size.",
+  "Pay percentile shows where a salary sits among the stated salaries of its own country (50 = typical). It lets Tunisia, France and the UK be compared without converting currencies.",
+  "Only a minority of postings state a salary (about 20% in Tunisia), so salary figures describe the postings that publish pay, not the whole market.",
+  "Adzuna sector sizes depend on our sampling (the newest 50 postings per category and day): compare sectors on pay, not on number of jobs.",
+  "Tools and seniority are extracted only for Tunisian postings. Adzuna descriptions are cut at 500 characters. A tool is counted only when the posting names it."
+ ]
+}

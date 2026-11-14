@@ -1,10 +1,4 @@
-"""Score the extraction against the hand-labeled sample.
-
-    python -m src.evaluation.score_gold
-
-Reads the reviewed labels (data/gold/gold_sample_labeled.xlsx if present,
-otherwise gold_labels.csv) and data/extracted/gold_predictions.csv.
-"""
+"""Evaluate extraction results against manually labeled samples."""
 import argparse
 import io
 

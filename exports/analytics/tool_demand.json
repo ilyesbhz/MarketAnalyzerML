@@ -1,0 +1,1248 @@
+[
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Excel",
+  "jobs": 70,
+  "pct_of_sector_jobs": 10
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Word",
+  "jobs": 34,
+  "pct_of_sector_jobs": 4.9
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Tableau",
+  "jobs": 15,
+  "pct_of_sector_jobs": 2.2
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "PowerPoint",
+  "jobs": 8,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Microsoft Office",
+  "jobs": 7,
+  "pct_of_sector_jobs": 1
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Outlook",
+  "jobs": 6,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Canva",
+  "jobs": 4,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "Odoo",
+  "jobs": 4,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "TUNEPS",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.4
+ },
+ {
+  "country": "tn",
+  "sector": "Administration & Management",
+  "tool": "ChatGPT",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.4
+ },
+ {
+  "country": "tn",
+  "sector": "Agriculture & Agri-food",
+  "tool": "Excel",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "AutoCAD",
+  "jobs": 31,
+  "pct_of_sector_jobs": 9
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "Revit",
+  "jobs": 20,
+  "pct_of_sector_jobs": 5.8
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "ArchiCAD",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "SolidWorks",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "SketchUp",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.5
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "Excel",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "Lumion",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "Navisworks",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "DAO",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "Construction & Property",
+  "tool": "Tableau",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "Consulting & Strategy",
+  "tool": "Excel",
+  "jobs": 8,
+  "pct_of_sector_jobs": 11.6
+ },
+ {
+  "country": "tn",
+  "sector": "Consulting & Strategy",
+  "tool": "Word",
+  "jobs": 5,
+  "pct_of_sector_jobs": 7.2
+ },
+ {
+  "country": "tn",
+  "sector": "Consulting & Strategy",
+  "tool": "PowerPoint",
+  "jobs": 4,
+  "pct_of_sector_jobs": 5.8
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Photoshop",
+  "jobs": 16,
+  "pct_of_sector_jobs": 18.4
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Illustrator",
+  "jobs": 12,
+  "pct_of_sector_jobs": 13.8
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "CapCut",
+  "jobs": 5,
+  "pct_of_sector_jobs": 5.7
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Canva",
+  "jobs": 5,
+  "pct_of_sector_jobs": 5.7
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Premiere Pro",
+  "jobs": 5,
+  "pct_of_sector_jobs": 5.7
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Adobe Illustrator",
+  "jobs": 4,
+  "pct_of_sector_jobs": 4.6
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "After Effects",
+  "jobs": 3,
+  "pct_of_sector_jobs": 3.4
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "Meta Ads",
+  "jobs": 3,
+  "pct_of_sector_jobs": 3.4
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "SketchUp",
+  "jobs": 3,
+  "pct_of_sector_jobs": 3.4
+ },
+ {
+  "country": "tn",
+  "sector": "Creative & Design",
+  "tool": "AutoCAD",
+  "jobs": 3,
+  "pct_of_sector_jobs": 3.4
+ },
+ {
+  "country": "tn",
+  "sector": "Customer Service",
+  "tool": "HubSpot",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.3
+ },
+ {
+  "country": "tn",
+  "sector": "Customer Service",
+  "tool": "Excel",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Education & Training",
+  "tool": "Meta Ads",
+  "jobs": 3,
+  "pct_of_sector_jobs": 1.9
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "AutoCAD",
+  "jobs": 26,
+  "pct_of_sector_jobs": 7
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Excel",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.7
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Revit",
+  "jobs": 9,
+  "pct_of_sector_jobs": 2.4
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "React",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Python",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "SolidWorks",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Git",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Word",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Microsoft Office",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "EPLAN",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Azure",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Arche",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Robot",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "Angular",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "SQL",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Engineering",
+  "tool": "JavaScript",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Excel",
+  "jobs": 33,
+  "pct_of_sector_jobs": 6.9
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Word",
+  "jobs": 13,
+  "pct_of_sector_jobs": 2.7
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Sage",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.1
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Odoo",
+  "jobs": 8,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "SAP",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.3
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Power BI",
+  "jobs": 4,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Pennylane",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "SQL Server",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "Excel avancé",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Finance & Accounting",
+  "tool": "PowerPoint",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Healthcare & Pharma",
+  "tool": "Excel",
+  "jobs": 3,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Hospitality, Tourism & Personal Services",
+  "tool": "Meta Ads",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Hospitality, Tourism & Personal Services",
+  "tool": "Amadeus",
+  "jobs": 3,
+  "pct_of_sector_jobs": 1.3
+ },
+ {
+  "country": "tn",
+  "sector": "Hospitality, Tourism & Personal Services",
+  "tool": "Google Ads",
+  "jobs": 3,
+  "pct_of_sector_jobs": 1.3
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Excel",
+  "jobs": 20,
+  "pct_of_sector_jobs": 2
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "SolidWorks",
+  "jobs": 10,
+  "pct_of_sector_jobs": 1
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Word",
+  "jobs": 8,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "AutoCAD",
+  "jobs": 8,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "PowerPoint",
+  "jobs": 6,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Tableau",
+  "jobs": 5,
+  "pct_of_sector_jobs": 0.5
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "SAP",
+  "jobs": 5,
+  "pct_of_sector_jobs": 0.5
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Lectra",
+  "jobs": 4,
+  "pct_of_sector_jobs": 0.4
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Odoo",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "Outlook",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "Industry & Manufacturing",
+  "tool": "GMAO",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Python",
+  "jobs": 21,
+  "pct_of_sector_jobs": 6.1
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Linux",
+  "jobs": 18,
+  "pct_of_sector_jobs": 5.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "SQL",
+  "jobs": 16,
+  "pct_of_sector_jobs": 4.6
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Docker",
+  "jobs": 14,
+  "pct_of_sector_jobs": 4
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "AWS",
+  "jobs": 13,
+  "pct_of_sector_jobs": 3.8
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "JavaScript",
+  "jobs": 13,
+  "pct_of_sector_jobs": 3.8
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Angular",
+  "jobs": 13,
+  "pct_of_sector_jobs": 3.8
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Active Directory",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "PostgreSQL",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Git",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Microsoft Office",
+  "jobs": 10,
+  "pct_of_sector_jobs": 2.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "React",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Power BI",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Azure",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "PHP",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "MySQL",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Laravel",
+  "jobs": 8,
+  "pct_of_sector_jobs": 2.3
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "WordPress",
+  "jobs": 7,
+  "pct_of_sector_jobs": 2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": ".NET",
+  "jobs": 7,
+  "pct_of_sector_jobs": 2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Windows Server",
+  "jobs": 7,
+  "pct_of_sector_jobs": 2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Odoo",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "C#",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "TypeScript",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "SQL Server",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Jira",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Kubernetes",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Node.js",
+  "jobs": 6,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Google Ads",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Flutter",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Nginx",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Terraform",
+  "jobs": 5,
+  "pct_of_sector_jobs": 1.4
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "NestJS",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Next.js",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "QUALIPRO",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "React.js",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Claude Opus 5.5",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "GCP",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Apache",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "API REST",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "C++",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Cisco",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "DNS",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Excel",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Java",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Jenkins",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "MongoDB",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "SAP",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "SFTP",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "SSH",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Symfony",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.2
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "HTML",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Apex",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Higgsfield",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Nagios",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Grafana",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "VMware",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Spring Boot",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "OVHcloud",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Fortinet",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Ansible",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "Salesforce",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "GitLab",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "FastAPI",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "CI/CD",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "API",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "IT, Data & Telecom",
+  "tool": "LWC",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "Excel",
+  "jobs": 18,
+  "pct_of_sector_jobs": 4.8
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "Microsoft Office",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "SAP",
+  "jobs": 4,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "Pack Office",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "Tableau",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Logistics, Transport & Supply Chain",
+  "tool": "Word",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Meta Ads",
+  "jobs": 23,
+  "pct_of_sector_jobs": 12.7
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Canva",
+  "jobs": 22,
+  "pct_of_sector_jobs": 12.2
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Google Ads",
+  "jobs": 12,
+  "pct_of_sector_jobs": 6.6
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Photoshop",
+  "jobs": 12,
+  "pct_of_sector_jobs": 6.6
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Illustrator",
+  "jobs": 12,
+  "pct_of_sector_jobs": 6.6
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "CapCut",
+  "jobs": 11,
+  "pct_of_sector_jobs": 6.1
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "After Effects",
+  "jobs": 8,
+  "pct_of_sector_jobs": 4.4
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Premiere Pro",
+  "jobs": 7,
+  "pct_of_sector_jobs": 3.9
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Meta Business Suite",
+  "jobs": 6,
+  "pct_of_sector_jobs": 3.3
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "DaVinci Resolve",
+  "jobs": 5,
+  "pct_of_sector_jobs": 2.8
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Adobe Premiere Pro",
+  "jobs": 4,
+  "pct_of_sector_jobs": 2.2
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "InDesign",
+  "jobs": 4,
+  "pct_of_sector_jobs": 2.2
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Adobe Photoshop",
+  "jobs": 4,
+  "pct_of_sector_jobs": 2.2
+ },
+ {
+  "country": "tn",
+  "sector": "Marketing & Communication",
+  "tool": "Google Analytics",
+  "jobs": 3,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Excel",
+  "jobs": 31,
+  "pct_of_sector_jobs": 3.4
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Word",
+  "jobs": 15,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Microsoft Office",
+  "jobs": 15,
+  "pct_of_sector_jobs": 1.7
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Meta Ads",
+  "jobs": 10,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Outlook",
+  "jobs": 10,
+  "pct_of_sector_jobs": 1.1
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Odoo",
+  "jobs": 8,
+  "pct_of_sector_jobs": 0.9
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "PowerPoint",
+  "jobs": 7,
+  "pct_of_sector_jobs": 0.8
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Canva",
+  "jobs": 5,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Google Ads",
+  "jobs": 5,
+  "pct_of_sector_jobs": 0.6
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "HubSpot",
+  "jobs": 4,
+  "pct_of_sector_jobs": 0.4
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "SAP",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Tableau",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "Sales & Retail",
+  "tool": "Photoshop",
+  "jobs": 3,
+  "pct_of_sector_jobs": 0.3
+ },
+ {
+  "country": "tn",
+  "sector": "Science, Research & Quality",
+  "tool": "Excel",
+  "jobs": 5,
+  "pct_of_sector_jobs": 3.8
+ }
+]

@@ -1,10 +1,4 @@
-"""Load data/processed/jobs_clean.csv into PostgreSQL.
-
-    python -m src.database.load_tanitjobs
-
-Idempotent: run it again after a new scrape and existing jobs are updated,
-new jobs are added, nothing is duplicated.
-"""
+"""Load the cleaned Tanitjobs dataset into PostgreSQL."""
 import pandas as pd
 
 import config

@@ -1,9 +1,4 @@
-"""Pick ~50 jobs spread across sectors for hand labeling.
-
-Run from the project root:  python -m src.evaluation.make_gold_sample
-Refuses to overwrite an existing gold_sample.csv (your labeling work is safe).
-Use --force only if you really want a new random sample.
-"""
+"""Create a development sample for manual labeling."""
 import argparse
 
 import pandas as pd

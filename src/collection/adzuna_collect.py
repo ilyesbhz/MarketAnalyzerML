@@ -1,12 +1,4 @@
-"""Step 1c (global): daily collector for the Adzuna API.
-
-Goes through every Adzuna category for each country, newest postings first,
-and saves the raw JSON of every call. Resumable within a day and stops when the
-daily call budget is used (the API does not report remaining calls itself).
-
-    python -m src.collection.adzuna_collect --max-calls 2     (small test)
-    python -m src.collection.adzuna_collect                   (full daily run)
-"""
+"""Collect daily Adzuna job results by country and category."""
 import argparse
 import gzip
 import json

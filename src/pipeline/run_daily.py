@@ -37,6 +37,9 @@ STEPS = [
     ("tanitjobs", "extract",         "src.database.extract_all", []),
     # data-quality checks always run, whatever happened above: they report the state of the data
     ("quality",   "checks",          "src.quality.checks", []),
+    # publish the dashboard data only if the checks found no ERROR (a failed check skips this step)
+    ("quality",   "export_analytics", "src.export.export_analytics", []),
+    ("quality",   "export_jobs",      "src.export.export_jobs", []),
 ]
 
 

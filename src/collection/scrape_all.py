@@ -1,10 +1,4 @@
-"""Step 1b: download every job page (resumable, polite).
-
-Run from the project root:
-    python -m src.collection.scrape_all --limit 100     (test)
-    python -m src.collection.scrape_all                 (everything)
-Stop with Ctrl+C at any time; run again to resume.
-"""
+"""Download and persist Tanitjobs job pages with resumable collection."""
 import argparse
 import gzip
 import json

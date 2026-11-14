@@ -1,8 +1,4 @@
-"""One-off exploration of the Adzuna API (uses very few calls).
-
-    python -m src.collection.adzuna_probe                     -> 2 detailed calls (fr, gb)
-    python -m src.collection.adzuna_probe --probe-countries   -> + 1 cheap call per country code
-"""
+"""Inspect Adzuna API responses and supported country codes."""
 import argparse
 import json
 import os

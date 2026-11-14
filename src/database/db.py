@@ -1,9 +1,3 @@
-"""Database connection helpers. The connection string lives in the .env file:
-
-    DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/jobmarket
-
-(special characters in the password must be URL-encoded, e.g. @ becomes %40)
-"""
 import os
 
 import psycopg

@@ -1,12 +1,4 @@
-"""Build the HELD-OUT test set: 30 jobs that are NOT in the development sample.
-
-    python -m src.evaluation.make_test_sample
-
-Writes data/gold/test_sample_labeled.xlsx (Labels, Descriptions, Legend sheets).
-You label the three columns by hand (tools, remote, seniority) WITHOUT looking at
-any model output. Then run each extraction step ONCE on it and report that score.
-Refuses to overwrite an existing file (your labeling work is safe); use --force to replace it.
-"""
+"""Create a held-out test sample for manual extraction evaluation."""
 import argparse
 
 import pandas as pd

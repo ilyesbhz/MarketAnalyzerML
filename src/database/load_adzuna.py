@@ -1,12 +1,4 @@
-"""Load every saved Adzuna raw file (data/raw/adzuna/<day>/*.json.gz) into PostgreSQL.
-
-    python -m src.database.load_adzuna
-
-Idempotent: all raw files are read every time. A job seen on several days appears once
-(latest version of its fields); first_seen_at / last_seen_at record the first and last day
-we saw it. Only salaries stated by the employer are marked 'exact'; Adzuna's own
-estimates are marked 'predicted' and must never be used as real pay.
-"""
+"""Load saved Adzuna results into PostgreSQL."""
 import gzip
 import json
 import statistics

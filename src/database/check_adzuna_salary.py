@@ -1,10 +1,4 @@
-"""Read-only check of the units of Adzuna salaries (yearly? monthly? hourly?).
-
-    python -m src.database.check_adzuna_salary
-
-Adzuna returns one number per posting without saying whether it is per hour, day,
-month or year. This prints how the numbers are spread, so we can decide how to treat them.
-"""
+"""Inspect the distribution of Adzuna salary values."""
 from src.database import db
 from src.database.summary import show
 

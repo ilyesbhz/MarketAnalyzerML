@@ -1,7 +1,4 @@
-"""Map source-specific categories to ONE shared list of unified sectors.
-
-The mappings live in data/reference/*.csv (plain files you can edit).
-"""
+"""Map source-specific categories to unified sectors."""
 import csv
 import re
 

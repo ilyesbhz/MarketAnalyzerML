@@ -1,7 +1,4 @@
-"""Summarize every saved Adzuna raw file (no API calls).
-
-    python -m src.collection.adzuna_inspect
-"""
+"""Summarize saved Adzuna raw files."""
 import gzip
 import json
 

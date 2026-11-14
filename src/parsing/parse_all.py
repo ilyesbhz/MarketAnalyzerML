@@ -1,9 +1,4 @@
-"""Step 2: parse every saved page, clean the fields, write the dataset + a report.
-
-Run from the project root:  python -m src.parsing.parse_all
-Reads  data/raw/ and data/interim/job_urls.json
-Writes data/processed/jobs_clean.csv and .json
-"""
+"""Parse saved pages, clean fields, and write the processed dataset."""
 import gzip
 import json
 import re

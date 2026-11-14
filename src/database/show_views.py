@@ -1,4 +1,4 @@
-"""Print a few rows of every analytics view, to check them.   python -m src.database.show_views"""
+"""Display representative rows from analytics views."""
 from src.database import db
 from src.database.summary import show
 

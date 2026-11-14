@@ -1,12 +1,4 @@
-"""Record every pipeline step in ops.pipeline_run (status, rows in/out, error note).
-
-Usage:
-    with pipeline_step("load_tanitjobs") as run:
-        ...
-        run["rows_in"] = 100
-        run["rows_out"] = 98
-The log is written on its own connection, so a failed step is still recorded.
-"""
+"""Record pipeline step status and row counts in the database."""
 from contextlib import contextmanager
 
 from src.database import db

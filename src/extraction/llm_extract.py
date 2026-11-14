@@ -1,9 +1,4 @@
-"""Local LLM extraction with Ollama: seniority, named tools and skills.
-
-    python -m src.extraction.llm_extract --check             is Ollama reachable?
-    python -m src.extraction.llm_extract --gold --limit 5    quick test on 5 labeled jobs
-    python -m src.extraction.llm_extract --gold              all labeled jobs + speed report
-"""
+"""Extract seniority, tools, and skills with Ollama and deterministic rules."""
 import argparse
 import json
 import statistics

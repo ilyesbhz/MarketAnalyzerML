@@ -1,0 +1,44 @@
+[
+ {
+  "country": "fr",
+  "source": "adzuna",
+  "jobs": 10182,
+  "active_jobs": 8750,
+  "companies": 3106,
+  "first_posting": "2022-05-24",
+  "last_posting": "2026-11-13",
+  "jobs_with_salary": 4625,
+  "pct_with_salary": 45.4,
+  "median_salary_per_year": 32000,
+  "currency": "EUR",
+  "jobs_extracted": 0
+ },
+ {
+  "country": "gb",
+  "source": "adzuna",
+  "jobs": 10750,
+  "active_jobs": 9337,
+  "companies": 3879,
+  "first_posting": "2026-10-20",
+  "last_posting": "2026-11-13",
+  "jobs_with_salary": 6372,
+  "pct_with_salary": 59.3,
+  "median_salary_per_year": 34029,
+  "currency": "GBP",
+  "jobs_extracted": 0
+ },
+ {
+  "country": "tn",
+  "source": "tanitjobs",
+  "jobs": 6465,
+  "active_jobs": 2995,
+  "companies": 2625,
+  "first_posting": "2026-08-28",
+  "last_posting": "2026-11-12",
+  "jobs_with_salary": 1299,
+  "pct_with_salary": 20.1,
+  "median_salary_per_year": 15000,
+  "currency": "TND",
+  "jobs_extracted": 6351
+ }
+]

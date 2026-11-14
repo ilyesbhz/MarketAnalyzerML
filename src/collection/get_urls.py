@@ -1,12 +1,4 @@
-"""Step 1a: read the public sitemap and save the list of job URLs.
-
-Run from the project root:  python -m src.collection.get_urls
-
-The list is MERGED with the previous one, never replaced: postings expire and leave the
-sitemap, but we still need their URL and dates for pages already downloaded.
-For every URL we also keep first_listed / last_listed (the first and last day the job was
-in the sitemap). That is what tells us how long a posting stayed online.
-"""
+"""Read the public sitemap and persist the job URL history."""
 import json
 import re
 from datetime import datetime, timezone

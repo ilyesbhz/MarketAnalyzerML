@@ -1,4 +1,4 @@
-"""Print a summary of what is in the database.   python -m src.database.summary"""
+"""Print database summary statistics."""
 from src.database import db
 
 QUERIES = [

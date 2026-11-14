@@ -1,8 +1,4 @@
-"""Parse ONE Tanitjobs job page (HTML string) into a dict.
-
-Two page templates exist: most pages have JSON-LD structured data, older
-ones do not, so a fallback reads the same fields from the visible HTML.
-"""
+"""Parse a Tanitjobs page using JSON-LD data with an HTML fallback."""
 import json
 import re
 

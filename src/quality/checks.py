@@ -1,12 +1,4 @@
-"""Data-quality checks on the database.
-
-    python -m src.quality.checks
-
-Every check runs one SQL query that returns one number and compares it with a rule.
- - severity 'error'   : the data is broken (the daily pipeline reports a failure, exit code 1)
- - severity 'warning' : something looks wrong and deserves a look, but the data is usable
-Every result is stored in ops.quality_check, so quality can be followed over time.
-"""
+"""Validate database freshness, completeness, and consistency."""
 import operator
 import sys
 

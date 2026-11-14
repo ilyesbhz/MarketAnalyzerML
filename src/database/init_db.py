@@ -1,9 +1,4 @@
-"""Create the database, the tables, and load the reference tables.
-
-    python -m src.database.init_db
-
-Safe to run again at any time.
-"""
+"""Initialize the PostgreSQL database and reference tables."""
 import csv
 
 import config

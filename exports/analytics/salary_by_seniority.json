@@ -1,0 +1,44 @@
+[
+ {
+  "country": "tn",
+  "seniority": "junior",
+  "jobs_with_salary": 73,
+  "median_salary_per_year": 9000,
+  "avg_pay_percentile": 39.8
+ },
+ {
+  "country": "tn",
+  "seniority": "unspecified",
+  "jobs_with_salary": 921,
+  "median_salary_per_year": 9000,
+  "avg_pay_percentile": 46
+ },
+ {
+  "country": "tn",
+  "seniority": "mid",
+  "jobs_with_salary": 23,
+  "median_salary_per_year": 15000,
+  "avg_pay_percentile": 61.7
+ },
+ {
+  "country": "tn",
+  "seniority": "senior",
+  "jobs_with_salary": 80,
+  "median_salary_per_year": 15000,
+  "avg_pay_percentile": 69
+ },
+ {
+  "country": "tn",
+  "seniority": "manager",
+  "jobs_with_salary": 163,
+  "median_salary_per_year": 15000,
+  "avg_pay_percentile": 71.3
+ },
+ {
+  "country": "tn",
+  "seniority": "intern",
+  "jobs_with_salary": 14,
+  "median_salary_per_year": 9000,
+  "avg_pay_percentile": null
+ }
+]
