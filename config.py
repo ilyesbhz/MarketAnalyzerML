@@ -10,6 +10,7 @@ INTERIM_DIR = DATA / "interim"      # URL list, logs
 PROCESSED_DIR = DATA / "processed"  # clean dataset
 GOLD_DIR = DATA / "gold"            # evaluation sample + reviewed labels
 EXTRACTED_DIR = DATA / "extracted"  # (planned) LLM output
+MODEL_DIR = DATA / "models"
 
 # --- files ---
 JOB_URLS = INTERIM_DIR / "job_urls.json"
@@ -41,3 +42,10 @@ OLLAMA_MODEL = "qwen2.5:7b"
 GOLD_LABELS_CSV = GOLD_DIR / "gold_labels.csv"
 GOLD_LABELS_XLSX = GOLD_DIR / "gold_sample_labeled.xlsx"
 GOLD_PREDICTIONS_CSV = EXTRACTED_DIR / "gold_predictions.csv"
+CLASSIFIER_BUNDLE = MODEL_DIR / "job_text_classifiers.joblib"
+CLASSIFIER_PREDICTIONS = MODEL_DIR / "test_classifier_predictions.csv"
+CLASSIFIER_METRICS = MODEL_DIR / "test_classifier_metrics.json"
+TOOLS_RULE_ERRORS = MODEL_DIR / "tools_rule_errors.csv"
+SALARY_MODEL = MODEL_DIR / "salary_bracket_model.joblib"
+SALARY_PREDICTIONS = MODEL_DIR / "salary_bracket_predictions.csv"
+SALARY_METRICS = MODEL_DIR / "salary_bracket_metrics.json"

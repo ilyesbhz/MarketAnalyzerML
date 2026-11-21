@@ -23,13 +23,16 @@ WITH base AS (
                 ELSE f.last_seen_at >= now() - interval '14 days' END AS is_active,
            e.seniority, e.remote, e.tools, e.skills,
            f.experience_min_years, f.education_level, f.employment_types, f.languages,
-           f.salary_currency AS currency, f.salary_kind, v.salary_unit, v.salary_annual
+           f.salary_currency AS currency, f.salary_kind, v.salary_unit, v.salary_annual,
+           -- model estimate (Tanitjobs jobs without a stated bracket); never used in the salary figures above
+           sp.bracket AS salary_bracket_estimated, sp.confidence AS salary_estimate_confidence
     FROM core.fact_job f
     JOIN core.dim_source s ON s.source_id = f.source_id
     LEFT JOIN core.dim_company c ON c.company_id = f.company_id
     LEFT JOIN core.dim_sector d ON d.sector_id = f.primary_sector_id
     LEFT JOIN core.job_extraction e ON e.job_pk = f.job_pk
     LEFT JOIN core.v_job_salary v ON v.job_pk = f.job_pk
+    LEFT JOIN core.job_salary_prediction sp ON sp.job_pk = f.job_pk
     WHERE NOT f.is_duplicate
 ), ranked AS (
     SELECT job_pk, round((100 * (percent_rank() OVER w + cume_dist() OVER w) / 2)::numeric, 1) AS pay_percentile
@@ -110,3 +113,41 @@ CREATE OR REPLACE VIEW analytics.daily_trend AS
 SELECT source, country, date_posted AS day, count(*) AS new_jobs
 FROM analytics.jobs WHERE source = 'tanitjobs' AND date_posted IS NOT NULL
 GROUP BY source, country, date_posted;
+
+-- Tunisian salary brackets: STATED (posting gives a bracket) next to ESTIMATED (salary-bracket model,
+-- src.models.train_salary, for postings that are confidential or silent on pay). One row per sector
+-- and bracket, plus 'All sectors'. Percentages are within the sector and within each group, so the
+-- two distributions can be compared; pct_combined describes all postings of the sector.
+-- Estimates are a model output (~62% exact, ~93% within one bracket): show them as estimates.
+CREATE OR REPLACE VIEW analytics.salary_estimate_summary AS
+WITH tn AS (
+    SELECT j.sector,
+           CASE WHEN j.salary_kind = 'bracket' THEN
+               CASE WHEN f.salary_min < 1000 THEN '<1000' WHEN f.salary_min < 1500 THEN '1000-1500'
+                    WHEN f.salary_min < 2000 THEN '1500-2000' ELSE '>=2000' END
+           END AS stated_bracket,
+           j.salary_bracket_estimated AS estimated_bracket,
+           j.salary_estimate_confidence AS confidence
+    FROM analytics.jobs j JOIN core.fact_job f ON f.job_pk = j.job_pk
+    WHERE j.country = 'tn'
+), long AS (
+    SELECT sector, stated_bracket AS bracket, 'stated' AS kind, NULL::numeric AS confidence
+    FROM tn WHERE stated_bracket IS NOT NULL
+    UNION ALL
+    SELECT sector, estimated_bracket, 'estimated', confidence
+    FROM tn WHERE estimated_bracket IS NOT NULL AND stated_bracket IS NULL
+), counted AS (
+    SELECT CASE WHEN grouping(sector) = 1 THEN 'All sectors' ELSE coalesce(sector, 'Unknown') END AS sector,
+           bracket,
+           count(*) FILTER (WHERE kind = 'stated') AS stated_jobs,
+           count(*) FILTER (WHERE kind = 'estimated') AS estimated_jobs,
+           round(avg(confidence), 3) AS avg_estimate_confidence
+    FROM long GROUP BY GROUPING SETS ((sector, bracket), (bracket))
+)
+SELECT sector, bracket, stated_jobs, estimated_jobs, avg_estimate_confidence,
+       round(100.0 * stated_jobs / nullif(sum(stated_jobs) OVER s, 0), 1) AS pct_stated,
+       round(100.0 * estimated_jobs / nullif(sum(estimated_jobs) OVER s, 0), 1) AS pct_estimated,
+       round(100.0 * (stated_jobs + estimated_jobs) / nullif(sum(stated_jobs + estimated_jobs) OVER s, 0), 1) AS pct_combined,
+       CASE bracket WHEN '<1000' THEN 1 WHEN '1000-1500' THEN 2 WHEN '1500-2000' THEN 3 ELSE 4 END AS bracket_order
+FROM counted
+WINDOW s AS (PARTITION BY sector);

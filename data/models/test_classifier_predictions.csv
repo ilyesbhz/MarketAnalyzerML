@@ -1,0 +1,31 @@
+﻿job_id,seniority_true,seniority_pred,remote_true,remote_pred,tools_true,tools_pred
+2062942,manager,unspecified,unspecified,unspecified,,
+2062440,unspecified,unspecified,unspecified,unspecified,,
+2036516,unspecified,senior,unspecified,unspecified,,
+2063303,unspecified,unspecified,unspecified,unspecified,WhatsApp,
+2051237,unspecified,unspecified,unspecified,unspecified,,
+2067296,junior,junior,unspecified,unspecified,Blender,Blender
+2052996,unspecified,unspecified,unspecified,unspecified,,Tableau
+2047548,manager,unspecified,unspecified,unspecified,,
+2063481,unspecified,unspecified,onsite,unspecified,,
+2063101,unspecified,unspecified,unspecified,unspecified,Excel,Excel
+2061915,unspecified,unspecified,unspecified,unspecified,,
+2047730,unspecified,unspecified,unspecified,unspecified,Assyst CAD,Assyst CAD
+2071328,unspecified,unspecified,onsite,unspecified,,
+2069457,intern,intern,unspecified,onsite,"n8n, Make, Zapier, OpenAI, Gemini, Claude, LangChain, Docker","n8n, Make, Zapier, OpenAI, Gemini, Claude, Python, JavaScript, TypeScript, LangChain, Docker, GitHub"
+2056903,unspecified,unspecified,unspecified,unspecified,,
+2047496,manager,unspecified,onsite,unspecified,Excel,Excel
+2058497,unspecified,unspecified,unspecified,onsite,,
+2066233,manager,unspecified,unspecified,unspecified,,
+2066942,junior,junior,unspecified,unspecified,,
+2057673,unspecified,unspecified,unspecified,unspecified,,
+2051137,unspecified,unspecified,unspecified,unspecified,,
+2049326,unspecified,junior,unspecified,onsite,,
+2071563,unspecified,unspecified,unspecified,unspecified,,
+2068884,senior,unspecified,unspecified,unspecified,,
+2060968,junior,unspecified,unspecified,unspecified,Excel,Excel
+2053212,junior,unspecified,unspecified,unspecified,"Excel, Word, Outlook","Excel, Word, Outlook"
+2048908,unspecified,unspecified,unspecified,unspecified,,
+2054561,manager,unspecified,unspecified,unspecified,,
+2059650,unspecified,junior,remote,unspecified,"Meta Ads, Facebook, Instagram",Meta Ads
+2063751,senior,unspecified,unspecified,unspecified,,

@@ -1,0 +1,201 @@
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.models.train_classifiers
+C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs\venv\Lib\site-packages\sklearn\preprocessing\_label.py:1016: UserWarning: unknown class(es) ['AI / Machine learning tools', 'Outlook)', 'aide aux scripts.', 'creation de contenus', 'data analysis and development', 'détourage', 'electrical systems and equipment', 'excellent communication skills', 'machines-outils classiques', 'maintenance moules', 'maintenance électrique', 'matériels industriels', "outils d'IA à la production : image et vidéo", 'proficiency in microsoft office suite (Word', 'sous-titrage et découpage automatiques', 'textes et vidéos', 'upscaling', 'visuels', 'voix de synthèse'] will be ignored
+  warnings.warn(
+{
+  "train_source": "gold_sample_labeled.xlsx",
+  "test_source": "test_sample_labeled.csv",
+  "train_jobs": 50,
+  "test_jobs": 30,
+  "seniority": {
+    "accuracy": 0.7333333333333333,
+    "macro_f1": 0.17254901960784313
+  },
+  "remote": {
+    "accuracy": 0.0,
+    "macro_f1": 0.0
+  },
+  "tools": {
+    "precision_micro": 0.0,
+    "recall_micro": 0.0,
+    "f1_micro": 0.0
+  }
+}
+
+after expanding the list :
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.models.train_classifiers --train-set expanded
+C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs\venv\Lib\site-packages\sklearn\preprocessing\_label.py:1016: UserWarning: unknown class(es) ['AI / Machine learning tools', 'Outlook)', 'aide aux scripts.', 'creation de contenus', 'data analysis and development', 'détourage', 'electrical systems and equipment', 'excellent communication skills', 'machines-outils classiques', 'maintenance moules', 'maintenance électrique', 'matériels industriels', "outils d'IA à la production : image et vidéo", 'proficiency in microsoft office suite (Word', 'sous-titrage et découpage automatiques', 'textes et vidéos', 'upscaling', 'visuels', 'voix de synthèse'] will be ignored
+  warnings.warn(
+{
+  "train_source": "expanded_sample_labeled.xlsx",
+  "test_source": "test_sample_labeled.csv",
+  "train_jobs": 250,
+  "test_jobs": 30,
+  "seniority": {
+    "accuracy": 0.8,
+    "macro_f1": 0.2222222222222222
+  },
+  "remote": {
+    "accuracy": 0.06666666666666667,
+    "macro_f1": 0.0625
+  },
+  "tools": {
+    "precision_micro": 0.0,
+    "recall_micro": 0.0,
+    "f1_micro": 0.0
+  }
+}
+
+Saved model: C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs\data\models\job_text_classifiers.joblib
+Saved predictions: C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs\data\models\test_classifier_predictions.csv
+
+
+
+
+
+18/11/2026
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.database.reapply_rules
+Jobs checked: 6633 | updated: 6633
+Seniority before: {'unspecified': 4479, 'manager': 1211, 'senior': 433, 'junior': 286, 'mid': 142, 'intern': 82}
+Seniority after:  {'unspecified': 5634, 'junior': 485, 'senior': 250, 'mid': 187, 'intern': 77}
+Managerial titles: 1178
+
+
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.quality.checks
+=== DATA QUALITY ===
+  PASS  Every source has jobs                             value 0  (expected == 0)
+  PASS  Adzuna data is fresh (days since last seen)       value 1  (expected <= 2)
+  PASS  Tanitjobs data is fresh (days since last listed)  value 1  (expected <= 3)
+  PASS  Jobs without any sector link                      value 0  (expected == 0)
+  PASS  Source and country consistent                     value 0  (expected == 0)
+  PASS  Posting date in the future                        value 0  (expected == 0)
+  WARN  Tanitjobs: expiry date before posting date        value 41  (expected == 0)
+        -> date parsing problem
+  PASS  Jobs without a company (%)                        value 2.2  (expected <= 5)
+  PASS  Jobs without a description (%)                    value 0.0  (expected <= 1)
+  PASS  Jobs without a posting date (%)                   value 0.0  (expected <= 1)
+  PASS  Duplicate postings (%)                            value 4.3  (expected <= 8)
+  PASS  Applicants outside 0-50 (Tanitjobs caps at 50)    value 0  (expected == 0)
+  PASS  Tanitjobs jobs waiting for extraction             value 0  (expected <= 150)
+  PASS  Extraction saved with rules only (%)              value 0.0  (expected <= 2)
+  PASS  Adzuna salaries with an unclear unit (%)          value 3.8  (expected <= 15)
+  PASS  Yearly salaries above 1,000,000                   value 0  (expected == 0)
+  PASS  Daily pipeline steps whose last run failed        value 0  (expected == 0)
+
+Quality: 16 passed, 1 warnings, 0 errors
+
+
+
+
+after update :
+
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.parsing.parse_all
+Cleared 41 expiry dates earlier than their posting dates
+
+=== REPORT ===
+Rows: 6914 | duplicates: 166 | low-quality descriptions: 116
+
+Missing values (%):
+salary_max              80.7
+salary_min              79.7
+salary_raw              55.4
+education_level         31.5
+education_raw           31.0
+experience_raw          21.3
+experience_min_years    21.3
+applicants              20.5
+valid_through            0.6
+date_posted              0.0
+job_id                   0.0
+url                      0.0
+
+Date posted range: 2026-08-28 -> 2026-11-17
+
+Top regions:
+ region
+Tunis        2367
+Ariana        917
+Sousse        792
+Ben Arous     713
+Sfax          648
+Nabeul        374
+Monastir      372
+Zaghouan      118
+
+Top categories: [('Industrie', 1027), ('Commerce', 927), ('Administration', 730), ('Vente', 479), ('Comptabilité', 477), ('Informatique', 454), ("Centres d'appels", 434), ('Marketing', 400)]
+
+Experience values: {'1 à 3 ans': 2188, nan: 1470, '3 à 5 ans': 1093, '0 à 1 an': 991, 'Débutant': 551, '5 à 10 ans': 513, 'plus 10 ans': 108}
+
+Education level counts: {3.0: 2459, nan: 2176, 5.0: 947, 0.0: 588, 2.0: 576, 4.0: 150, 8.0: 18}
+Education values NOT mapped: {'Etudiant': 24, 'Médecin Spécialiste': 5, 'Médecin Généraliste': 4}
+
+Salary kinds: {'none': 3833, 'confidential': 1680, 'bracket': 1401}
+Salary brackets: {'Entre 500 DT et 1000 DT': 651, 'Entre 1000 DT et 1500 DT': 434, 'Entre 1500 DT et 2000 DT': 166, 'Plus 3000 DT': 66, 'Entre 2000 DT et 3000 DT': 64, 'Inférieur à 500 DT': 20}
+
+Languages: [('Français', 4374), ('Anglais', 2427), ('Arabe', 2045), ('Italien', 76), ('Allemand', 59), ('Espagnol', 19), ('Chinois', 3), ('Néerlandais', 2), ('Turc', 1)]
+
+Applicants describe:
+ count    5496.0
+mean       40.5
+std        13.9
+min         5.0
+25%        31.0
+50%        50.0
+75%        50.0
+max        50.0
+
+Parsed from: {'jsonld': 6599, 'html': 315}
+Still missing title / company / region: 0 0 0
+
+Expired already: 4224 | usable (not duplicate, not low-quality): 6633
+Distinct companies: 2733
+Anonymous postings: 139 | distinct real companies: 2708
+
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.database.load_tanitjobs
+Read 6914 rows | jobs in database before: 6914, after: 6914 (new: 0)
+Companies in database: 11716 | sector links written: 10036 | jobs without a mapped sector (set to 'Other / General'): 1
+
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.quality.checks         
+=== DATA QUALITY ===
+  PASS  Every source has jobs                             value 0  (expected == 0)
+  PASS  Adzuna data is fresh (days since last seen)       value 1  (expected <= 2)
+  PASS  Tanitjobs data is fresh (days since last listed)  value 1  (expected <= 3)
+  PASS  Jobs without any sector link                      value 0  (expected == 0)
+  PASS  Source and country consistent                     value 0  (expected == 0)
+  PASS  Posting date in the future                        value 0  (expected == 0)
+  PASS  Tanitjobs: expiry date before posting date        value 0  (expected == 0)
+  PASS  Jobs without a company (%)                        value 2.2  (expected <= 5)
+  PASS  Jobs without a description (%)                    value 0.0  (expected <= 1)
+  PASS  Jobs without a posting date (%)                   value 0.0  (expected <= 1)
+  PASS  Duplicate postings (%)                            value 4.3  (expected <= 8)
+  PASS  Applicants outside 0-50 (Tanitjobs caps at 50)    value 0  (expected == 0)
+  PASS  Tanitjobs jobs waiting for extraction             value 0  (expected <= 150)
+  PASS  Extraction saved with rules only (%)              value 0.0  (expected <= 2)
+  PASS  Adzuna salaries with an unclear unit (%)          value 3.8  (expected <= 15)
+  PASS  Yearly salaries above 1,000,000                   value 0  (expected == 0)
+  PASS  Daily pipeline steps whose last run failed        value 0  (expected == 0)
+
+Quality: 17 passed, 0 warnings, 0 errors
+
+
+
+(venv) C:\Users\ilyesbhz\Desktop\9raya\machine learning\project\tn-jobs>python -m src.models.train_classifiers --train-set expanded
+{
+  "train_source": "expanded_sample_labeled.xlsx",
+  "test_source": "test_sample_labeled.xlsx",
+  "train_jobs": 264,
+  "test_jobs": 30,
+  "seniority": {
+    "accuracy": 0.6,
+    "macro_f1": 0.4428571428571429
+  },
+  "remote": {
+    "accuracy": 0.7666666666666667,
+    "macro_f1": 0.2893081761006289
+  },
+  "tools": {
+    "precision_micro": 0.0,
+    "recall_micro": 0.0,
+    "f1_micro": 0.0
+  }
+}

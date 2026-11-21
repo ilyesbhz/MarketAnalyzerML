@@ -1,4 +1,4 @@
-"""The daily pipeline: collect -> parse -> load -> extract, for both sources.
+"""The daily pipeline: collect -> parse -> load -> extract -> salary model -> export -> web app import.
 
     python -m src.pipeline.run_daily               everything
     python -m src.pipeline.run_daily --only adzuna one branch only (tanitjobs | adzuna)
@@ -35,11 +35,17 @@ STEPS = [
     ("tanitjobs", "parse",           "src.parsing.parse_all", []),
     ("tanitjobs", "load_tanitjobs",  "src.database.load_tanitjobs", []),
     ("tanitjobs", "extract",         "src.database.extract_all", []),
+    ("tanitjobs", "apply_rules",     "src.database.reapply_rules", []),
+    # retrain the salary-bracket model on today's stated brackets (~1 min) and store estimates for
+    # the jobs without a stated salary in core.job_salary_prediction
+    ("tanitjobs", "salary_model",    "src.models.train_salary", ["--write-db"]),
     # data-quality checks always run, whatever happened above: they report the state of the data
     ("quality",   "checks",          "src.quality.checks", []),
     # publish the dashboard data only if the checks found no ERROR (a failed check skips this step)
     ("quality",   "export_analytics", "src.export.export_analytics", []),
     ("quality",   "export_jobs",      "src.export.export_jobs", []),
+    # load the fresh jobs.json into the web app's database (npm run import:jobs in the app folder)
+    ("quality",   "import_app",       "src.export.import_app", []),
 ]
 
 

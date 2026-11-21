@@ -168,3 +168,19 @@ CREATE TABLE IF NOT EXISTS ops.quality_check (
     detail      TEXT
 );
 CREATE INDEX IF NOT EXISTS ix_quality_run ON ops.quality_check (run_at);
+
+-- ---------- model-estimated salary brackets (Tanitjobs, TND / month) ----------
+-- Written by src.models.train_salary --write-db for jobs WITHOUT a stated bracket.
+-- Kept apart from core.fact_job so a stated salary is never overwritten by an estimate,
+-- and apart from Adzuna's own estimates (fact_job.salary_kind = 'predicted').
+CREATE TABLE IF NOT EXISTS core.job_salary_prediction (
+    job_pk        BIGINT PRIMARY KEY REFERENCES core.fact_job (job_pk) ON DELETE CASCADE,
+    bracket       TEXT NOT NULL CHECK (bracket IN ('<1000', '1000-1500', '1500-2000', '>=2000')),
+    salary_min    NUMERIC(12, 2),
+    salary_max    NUMERIC(12, 2),
+    currency      CHAR(3) NOT NULL DEFAULT 'TND',
+    period        TEXT NOT NULL DEFAULT 'month',
+    confidence    NUMERIC(4, 3),
+    model         TEXT NOT NULL,
+    predicted_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);

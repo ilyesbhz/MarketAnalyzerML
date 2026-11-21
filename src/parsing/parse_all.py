@@ -142,7 +142,14 @@ def main():
                      df["description"].str[:300])
     df["is_duplicate"] = df.duplicated("dup_key", keep="first")
     df = df.drop(columns="dup_key")
-    df["is_expired"] = pd.to_datetime(df.valid_through) < pd.Timestamp.today().normalize()
+    posted = pd.to_datetime(df.date_posted, errors="coerce")
+    expiry = pd.to_datetime(df.valid_through, errors="coerce")
+    invalid_expiry = posted.notna() & expiry.notna() & (expiry < posted)
+    if invalid_expiry.any():
+        df.loc[invalid_expiry, "valid_through"] = None
+        print("Cleared", int(invalid_expiry.sum()),
+              "expiry dates earlier than their posting dates")
+    df["is_expired"] = pd.to_datetime(df.valid_through, errors="coerce") < pd.Timestamp.today().normalize()
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(config.JOBS_CLEAN_CSV, index=False, encoding="utf-8-sig")

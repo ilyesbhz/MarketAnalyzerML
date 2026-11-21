@@ -1,0 +1,40 @@
+{
+  "train_source": "expanded_sample_labeled.xlsx",
+  "test_source": "test_sample_labeled.xlsx",
+  "train_jobs": 264,
+  "test_jobs": 30,
+  "seniority": {
+    "accuracy": 0.6,
+    "macro_f1": 0.4428571428571429
+  },
+  "remote": {
+    "accuracy": 0.7666666666666667,
+    "macro_f1": 0.2893081761006289
+  },
+  "tools_test": {
+    "method": "dictionary rules (detect_tools), lenient match",
+    "jobs": 30,
+    "jobs_with_tools": 9,
+    "precision_micro": 0.7727272727272727,
+    "recall_micro": 0.85,
+    "f1_micro": 0.8095238095238095,
+    "tp": 17,
+    "fp": 5,
+    "fn": 3,
+    "exact_match_per_job": 0.8666666666666667,
+    "no_tool_jobs_predicted_empty": 0.9523809523809523
+  },
+  "tools_all_labeled": {
+    "method": "dictionary rules (detect_tools), lenient match",
+    "jobs": 294,
+    "jobs_with_tools": 57,
+    "precision_micro": 0.7611336032388664,
+    "recall_micro": 0.8826291079812206,
+    "f1_micro": 0.817391304347826,
+    "tp": 188,
+    "fp": 59,
+    "fn": 25,
+    "exact_match_per_job": 0.8537414965986394,
+    "no_tool_jobs_predicted_empty": 0.919831223628692
+  }
+}

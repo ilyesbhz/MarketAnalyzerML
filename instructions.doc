@@ -65,3 +65,6 @@ A multilabel classifier for tools and skills
 
 
 A job-market NLP system that collects and cleans job postings, applies a pretrained local LLM and rule-based extraction to identify seniority, tools, skills, and remote-work type, then evaluates the extraction against manually labeled data.
+
+
+

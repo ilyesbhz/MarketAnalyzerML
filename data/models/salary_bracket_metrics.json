@@ -1,0 +1,91 @@
+{
+  "task": "ordinal salary bracket classification (Tanitjobs, TND/month)",
+  "brackets": [
+    "<1000",
+    "1000-1500",
+    "1500-2000",
+    ">=2000"
+  ],
+  "labeled_jobs": 1456,
+  "cross_validation": {
+    "method": "5-fold GroupKFold by company",
+    "results": {
+      "baseline_majority": {
+        "accuracy": 0.4807692307692308,
+        "macro_f1": 0.16233766233766234,
+        "within_one_bracket": 0.7939560439560439,
+        "mean_abs_bracket_error": 0.8193681318681318
+      },
+      "logreg_base": {
+        "accuracy": 0.6188186813186813,
+        "macro_f1": 0.49571610998326854,
+        "within_one_bracket": 0.9230769230769231,
+        "mean_abs_bracket_error": 0.47802197802197804
+      },
+      "logreg_+seniority_tools": {
+        "accuracy": 0.617445054945055,
+        "macro_f1": 0.4924634567433506,
+        "within_one_bracket": 0.9175824175824175,
+        "mean_abs_bracket_error": 0.48626373626373626
+      },
+      "ordinal_ridge_base": {
+        "accuracy": 0.5892857142857143,
+        "macro_f1": 0.45459513688925446,
+        "within_one_bracket": 0.9608516483516484,
+        "mean_abs_bracket_error": 0.4519230769230769
+      },
+      "ordinal_ridge_+seniority_tools": {
+        "accuracy": 0.5934065934065934,
+        "macro_f1": 0.47048887923905347,
+        "within_one_bracket": 0.9587912087912088,
+        "mean_abs_bracket_error": 0.4498626373626374
+      }
+    }
+  },
+  "best": "logreg_base",
+  "confusion_matrix_best": [
+    [
+      556,
+      113,
+      20,
+      11
+    ],
+    [
+      125,
+      254,
+      53,
+      24
+    ],
+    [
+      12,
+      80,
+      31,
+      40
+    ],
+    [
+      18,
+      27,
+      32,
+      60
+    ]
+  ],
+  "time_holdout": {
+    "test_from": "2026-11-05",
+    "train_jobs": 1162,
+    "test_jobs": 294,
+    "results": {
+      "baseline_majority": {
+        "accuracy": 0.5034013605442177,
+        "macro_f1": 0.167420814479638,
+        "within_one_bracket": 0.8435374149659864,
+        "mean_abs_bracket_error": 0.7414965986394558
+      },
+      "logreg_base": {
+        "accuracy": 0.6326530612244898,
+        "macro_f1": 0.54324673968055,
+        "within_one_bracket": 0.9387755102040817,
+        "mean_abs_bracket_error": 0.445578231292517
+      }
+    }
+  }
+}

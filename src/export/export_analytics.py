@@ -28,6 +28,10 @@ VIEWS = {
     "seniority_mix": "SELECT * FROM analytics.seniority_mix ORDER BY country, sector, jobs DESC",
     "salary_by_seniority": "SELECT * FROM analytics.salary_by_seniority ORDER BY country, avg_pay_percentile NULLS LAST",
     "region_summary": "SELECT * FROM analytics.region_summary ORDER BY country, jobs DESC",
+    # Tunisia: stated vs model-estimated salary brackets, per sector ('All sectors' first)
+    "salary_estimate_summary": (
+        "SELECT * FROM analytics.salary_estimate_summary "
+        "ORDER BY sector <> 'All sectors', sector, bracket_order"),
     # today is excluded: its count is still growing
     "daily_trend": "SELECT * FROM analytics.daily_trend WHERE day < current_date ORDER BY day",
     # the three countries side by side, one row per sector
@@ -49,6 +53,9 @@ CAVEATS = [
     "that publish pay, not the whole market.",
     "Adzuna sector sizes depend on our sampling (the newest 50 postings per category and day): compare sectors "
     "on pay, not on number of jobs.",
+    "Estimated salary brackets (Tunisia only) come from a model trained on the postings that state a bracket. "
+    "It picks the right bracket about 62% of the time and is at most one bracket off about 93% of the time. "
+    "Estimates are kept apart from stated salaries and are never used in medians or pay percentiles.",
     "Tools and seniority are extracted only for Tunisian postings. Adzuna descriptions are cut at 500 characters. "
     "A tool is counted only when the posting names it.",
 ]

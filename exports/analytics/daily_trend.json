@@ -9,19 +9,19 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-09-08",
-  "new_jobs": 13
+  "new_jobs": 12
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-09-09",
-  "new_jobs": 106
+  "new_jobs": 104
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-09-10",
-  "new_jobs": 103
+  "new_jobs": 102
  },
  {
   "source": "tanitjobs",
@@ -213,19 +213,19 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-10-12",
-  "new_jobs": 114
+  "new_jobs": 113
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-10-13",
-  "new_jobs": 157
+  "new_jobs": 151
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-10-14",
-  "new_jobs": 122
+  "new_jobs": 121
  },
  {
   "source": "tanitjobs",
@@ -261,7 +261,7 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-10-20",
-  "new_jobs": 101
+  "new_jobs": 100
  },
  {
   "source": "tanitjobs",
@@ -309,7 +309,7 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-10-28",
-  "new_jobs": 90
+  "new_jobs": 89
  },
  {
   "source": "tanitjobs",
@@ -357,7 +357,7 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-11-05",
-  "new_jobs": 111
+  "new_jobs": 110
  },
  {
   "source": "tanitjobs",
@@ -387,18 +387,66 @@
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-11-10",
-  "new_jobs": 122
+  "new_jobs": 121
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-11-11",
-  "new_jobs": 98
+  "new_jobs": 99
  },
  {
   "source": "tanitjobs",
   "country": "tn",
   "day": "2026-11-12",
-  "new_jobs": 100
+  "new_jobs": 101
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-13",
+  "new_jobs": 92
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-14",
+  "new_jobs": 45
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-15",
+  "new_jobs": 12
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-16",
+  "new_jobs": 112
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-17",
+  "new_jobs": 112
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-18",
+  "new_jobs": 119
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-19",
+  "new_jobs": 106
+ },
+ {
+  "source": "tanitjobs",
+  "country": "tn",
+  "day": "2026-11-20",
+  "new_jobs": 95
  }
 ]

@@ -1,11 +1,13 @@
 """Evaluate extraction results against manually labeled samples."""
 import argparse
 import io
+import re
 
 import pandas as pd
 
 import config
-from src.extraction.rules import INTERN_TITLE, MANAGER_TITLE, NOT_MANAGER, SENIOR_STRONG, fold
+from src.extraction.rules import (INTERN_TITLE, MANAGER_TITLE, NOT_MANAGER, SENIOR_TITLE, _METHODS_CI,
+                                  _METHODS_CS, canonical_tool, fold)
 
 
 def labels_path(prefix):
@@ -66,11 +68,44 @@ VALID_SENIORITY = {"intern", "junior", "mid", "senior", "manager", "unspecified"
 LABEL_WORDS = VALID_REMOTE | VALID_SENIORITY | {"none", "n/a", "na", "-", "aucun", "aucune", "nan"}
 
 
+# Typed in tools cells but not named software: methods/standards (scored separately by
+# detect_methods) and generic categories. They are left out of the tools score.
+NOT_TOOLS = {m.lower() for m in _METHODS_CI + _METHODS_CS} | {
+    "erp", "crm", "ia", "ai", "saas", "microsoft", "api", "api rest", "rest api", "rest apis",
+    "web services", "normes iso", "agile", "scrum", "backlog", "ci", "cd", "ci/cd",
+    "data lakes", "data warehousing", "data modelling", "lakehouse architectures",
+    "cloud data platforms", "etl / elt concepts", "elt concepts", "rest apis and data integration",
+}
+_PROTECTED = ["CI/CD", "TCP/IP", "ETL / ELT concepts"]       # contain a separator but are one item
+_SEPARATORS = re.compile(r"\s*(?:[,;|/\n•·()�–—]|\s&\s|\s(?:et|ou|and|or|avec)\s)\s*", re.I)
+
+
+def split_tools_cell(cell):
+    """Tool names in one hand-labeled cell, in canonical spelling, without duplicates.
+
+    Annotators wrote 'Photoshop/Illustrator.\\nCapCut', 'Microsoft Excel et Word',
+    'Google Analytics (GA4)': all of these are split into separate tools."""
+    text = str(cell)
+    for i, p in enumerate(_PROTECTED):
+        text = re.sub(re.escape(p), f"\x00{i}\x00", text, flags=re.I)
+    out, seen = [], set()
+    for item in _SEPARATORS.split(text):
+        item = re.sub(r"\x00(\d)\x00", lambda m: _PROTECTED[int(m.group(1))], item)
+        item = item.strip(" .:-\t\r")
+        low = item.lower()
+        if not item or low in LABEL_WORDS or low in NOT_TOOLS:
+            continue
+        name = canonical_tool(item)
+        if name.lower() not in seen:
+            seen.add(name.lower())
+            out.append(name)
+    return out
+
+
 def clean_tools_cell(cell):
     """A tools cell must hold tool names. Label words typed by mistake ('unspecified', 'none')
-    mean 'no tool named' and are treated as empty."""
-    items = [x.strip() for x in str(cell).replace("|", ",").replace(";", ",").split(",")]
-    return ", ".join(x for x in items if x and x.lower() not in LABEL_WORDS)
+    mean 'no tool named' and are treated as empty. Names are split and put in canonical spelling."""
+    return ", ".join(split_tools_cell(cell))
 
 
 def check_labels(df):
@@ -99,7 +134,7 @@ def check_labels(df):
         t = fold(r.title)
         if MANAGER_TITLE.search(t) and not NOT_MANAGER.search(t) and r.seniority != "manager":
             warn.append((r.job_id, r.seniority, "title has responsable/chef/lead/manager -> manager?", r.title))
-        elif SENIOR_STRONG.search(t) and r.seniority != "senior":
+        elif SENIOR_TITLE.search(t) and r.seniority != "senior":
             warn.append((r.job_id, r.seniority, "title says senior/confirme -> senior?", r.title))
         elif INTERN_TITLE.search(t) and r.seniority != "intern":
             warn.append((r.job_id, r.seniority, "title says stage/PFE/alternance -> intern?", r.title))
