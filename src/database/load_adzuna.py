@@ -1,7 +1,6 @@
 """Load saved Adzuna results into PostgreSQL."""
 import gzip
 import json
-import statistics
 
 import pandas as pd
 

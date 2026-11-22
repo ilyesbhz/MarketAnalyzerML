@@ -61,7 +61,6 @@ def main():
             before = conn.execute(
                 "SELECT count(*) FROM core.fact_job WHERE source_id = %s", (SOURCE_ID,)).fetchone()[0]
 
-            # companies
             comp = df[["company", "company_key", "is_anonymous"]].dropna(subset=["company_key"]) \
                 .drop_duplicates("company_key")
             conn.cursor().executemany(
@@ -71,7 +70,6 @@ def main():
             company_ids = dict(conn.execute("SELECT name_key, company_id FROM core.dim_company").fetchall())
             sector_ids = dict(conn.execute("SELECT name, sector_id FROM core.dim_sector").fetchall())
 
-            # jobs
             params, job_sectors, no_sector = [], {}, 0
             for r in df.itertuples():
                 sectors = tanitjobs_sectors(r.categories if isinstance(r.categories, str) else "")

@@ -195,7 +195,6 @@ def main():
     if n == 0:
         return
 
-    # ---- seniority ----
     print("\n=== SENIORITY ===")
     base = (df.seniority == "unspecified").mean()
     print(f"baseline 'always unspecified': {base * 100:.1f}%")
@@ -213,7 +212,6 @@ def main():
                      if "seniority_llm" in df.columns else "")
             print(f"  {r.job_id} | gold={r.seniority:<11} pred={r.seniority_pred:<11}{extra} | {r.title[:45]}")
 
-    # ---- tools ----
     print("\n=== TOOLS (lenient match) ===")
     final_bad = []
     for label, col in [("LLM only", "tools_llm"), ("Dictionary only", "tools_rules"),
@@ -227,7 +225,6 @@ def main():
     for jid, missed, extra in final_bad[:12]:
         print(f"  final | {jid} | missed: {missed or '-'} | extra: {extra or '-'}")
 
-    # ---- remote ----
     racc = (df.remote == df.remote_pred).mean()
     print("\n=== REMOTE (keyword rules) ===")
     print(f"Accuracy: {racc * 100:.1f}% | gold distribution: {df.remote.value_counts().to_dict()}")

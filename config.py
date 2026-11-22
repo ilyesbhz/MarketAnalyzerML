@@ -9,14 +9,13 @@ RAW_DIR = DATA / "raw"              # downloaded pages (.html.gz), never edited
 INTERIM_DIR = DATA / "interim"      # URL list, logs
 PROCESSED_DIR = DATA / "processed"  # clean dataset
 GOLD_DIR = DATA / "gold"            # evaluation sample + reviewed labels
-EXTRACTED_DIR = DATA / "extracted"  # (planned) LLM output
+EXTRACTED_DIR = DATA / "extracted"  # LLM predictions on the labeled samples
 MODEL_DIR = DATA / "models"
 
 # --- files ---
 JOB_URLS = INTERIM_DIR / "job_urls.json"
 GONE_LOG = INTERIM_DIR / "gone.log"
 JOBS_CLEAN_CSV = PROCESSED_DIR / "jobs_clean.csv"
-JOBS_CLEAN_JSON = PROCESSED_DIR / "jobs_clean.json"
 GOLD_SAMPLE_CSV = GOLD_DIR / "gold_sample.csv"
 
 # --- scraping ---
@@ -25,7 +24,6 @@ SITEMAP_URL = "https://www.tanitjobs.com/sitemap.xml"
 USER_AGENT = "Mozilla/5.0 (academic project; contact: ilyeszhb@gmail.com)"
 SCRAPE_DELAY = 3            # seconds between requests
 MAX_CONSECUTIVE_ERRORS = 5  # stop after this many errors in a row
-
 
 # --- Adzuna (global module) ---
 ADZUNA_RAW_DIR = RAW_DIR / "adzuna"
@@ -40,8 +38,8 @@ ADZUNA_DELAY = 3               # seconds between calls
 OLLAMA_URL = "http://localhost:11434"
 OLLAMA_MODEL = "qwen2.5:7b"
 GOLD_LABELS_CSV = GOLD_DIR / "gold_labels.csv"
-GOLD_LABELS_XLSX = GOLD_DIR / "gold_sample_labeled.xlsx"
-GOLD_PREDICTIONS_CSV = EXTRACTED_DIR / "gold_predictions.csv"
+
+# --- trained models ---
 CLASSIFIER_BUNDLE = MODEL_DIR / "job_text_classifiers.joblib"
 CLASSIFIER_PREDICTIONS = MODEL_DIR / "test_classifier_predictions.csv"
 CLASSIFIER_METRICS = MODEL_DIR / "test_classifier_metrics.json"

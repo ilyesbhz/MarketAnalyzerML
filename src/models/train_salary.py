@@ -16,7 +16,8 @@ Two evaluations:
 Metrics: accuracy, macro F1, within-one-bracket accuracy, mean absolute bracket error.
 
 Features: title + description (TF-IDF), experience years, education level, category, region,
-contract types, languages, and, from the rule extractor, seniority, managerial title and tools.
+contract types, languages. Rule-extracted seniority, managerial title and tools did not improve
+the score, so they are only evaluated with --compare-features.
 
 The best model is refit on all labeled jobs and predicts a bracket (with its probability) for
 jobs whose salary is 'confidential' or missing. With --write-db the predictions go to
@@ -24,6 +25,7 @@ core.job_salary_prediction (a separate table: stated salaries in core.fact_job a
 
     python -m src.models.train_salary
     python -m src.models.train_salary --write-db
+    python -m src.models.train_salary --compare-features
 """
 import argparse
 import json
@@ -90,7 +92,7 @@ def bracket_of(salary_min):
     return 3
 
 
-def load_jobs():
+def load_jobs(extra=False):
     df = pd.read_csv(config.JOBS_CLEAN_CSV, dtype=str)
     df = df[df["is_duplicate"].fillna("False") != "True"].copy()
     for col in ["title", "description"] + MULTI:
@@ -102,7 +104,8 @@ def load_jobs():
     df["log_desc_len"] = np.log1p(pd.to_numeric(df["desc_len"], errors="coerce").fillna(0))
     df["company_key"] = df["company_key"].fillna(df["job_id"])   # unknown company = its own group
     df["date_posted"] = pd.to_datetime(df["date_posted"], errors="coerce")
-    # rule-extractor features (same functions the pipeline uses, so they exist for every job)
+    if not extra:
+        return df
     df["seniority"] = [rule_seniority(t, d) for t, d in zip(df["title"], df["description"])]
     df["managerial"] = df["title"].map(is_managerial).astype(float)
     tools = [detect_tools(f"{t}\n{d}") for t, d in zip(df["title"], df["description"])]
@@ -146,14 +149,16 @@ def logreg(extra):
     ])
 
 
-def candidates():
-    return {
+def candidates(extra=False):
+    models = {
         "baseline_majority": lambda: DummyClassifier(strategy="most_frequent"),
         "logreg_base": lambda: logreg(extra=False),
-        "logreg_+seniority_tools": lambda: logreg(extra=True),
         "ordinal_ridge_base": lambda: OrdinalRidge(extra=False),
-        "ordinal_ridge_+seniority_tools": lambda: OrdinalRidge(extra=True),
     }
+    if extra:
+        models["logreg_+seniority_tools"] = lambda: logreg(extra=True)
+        models["ordinal_ridge_+seniority_tools"] = lambda: OrdinalRidge(extra=True)
+    return models
 
 
 def scores(y_true, y_pred):
@@ -209,9 +214,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--write-db", action="store_true",
                     help="store the predictions in core.job_salary_prediction")
+    ap.add_argument("--compare-features", action="store_true",
+                    help="also evaluate models using rule-extracted seniority and tools")
     args = ap.parse_args()
 
-    jobs = load_jobs()
+    jobs = load_jobs(args.compare_features)
+    models = candidates(args.compare_features)
     labeled = jobs[jobs["salary_kind"] == "bracket"].reset_index(drop=True)
     y = labeled["salary_min"].map(bracket_of).to_numpy()
     groups = labeled["company_key"].to_numpy()
@@ -220,7 +228,7 @@ def main():
 
     print("\n1) 5-fold cross-validation grouped by company")
     results, cv_preds = {}, {}
-    for name, make in candidates().items():
+    for name, make in models.items():
         cv_preds[name] = cross_validate(make, labeled, y, groups)
         results[name] = scores(y, cv_preds[name])
         show(name, results[name])
@@ -237,12 +245,12 @@ def main():
     print(f"\n2) Time-based hold-out (newest {TEST_SHARE:.0%} of postings)")
     holdout = {}
     for name in ["baseline_majority", best]:
-        holdout[name], cutoff, n_train, n_test = time_holdout(candidates()[name], labeled, y)
+        holdout[name], cutoff, n_train, n_test = time_holdout(models[name], labeled, y)
         show(name, holdout[name])
     print(f"  trained on {n_train} postings before {cutoff:%Y-%m-%d}, tested on {n_test} from that date on")
 
     # refit on all labeled jobs, predict the jobs without a stated salary
-    model = candidates()[best]().fit(labeled, y)
+    model = models[best]().fit(labeled, y)
     unlabeled = jobs[jobs["salary_kind"] != "bracket"].reset_index(drop=True)
     out = unlabeled[["job_id", "title", "company", "salary_kind"]].copy()
     out["salary_bracket_pred"] = [BRACKETS[i] for i in model.predict(unlabeled)]

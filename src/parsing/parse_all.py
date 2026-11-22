@@ -10,7 +10,6 @@ import config
 from src.parsing.parse_job import parse_job
 
 
-# ---------------- helpers ----------------
 def read_raw(path):
     if path.suffix == ".gz":
         with gzip.open(path, "rt", encoding="utf-8") as f:
@@ -81,7 +80,6 @@ def salary(s):
     return None, None, "other"
 
 
-# ---------------- main ----------------
 def main():
     with open(config.JOB_URLS, encoding="utf-8") as f:
         meta = {u["url"].split("/job/")[1].split("/")[0]: u for u in json.load(f)}
@@ -153,9 +151,7 @@ def main():
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(config.JOBS_CLEAN_CSV, index=False, encoding="utf-8-sig")
-    df.to_json(config.JOBS_CLEAN_JSON, orient="records", force_ascii=False, indent=1)
 
-    # ---------------- report ----------------
     print("\n=== REPORT ===")
     print("Rows:", len(df), "| duplicates:", int(df.is_duplicate.sum()),
           "| low-quality descriptions:", int(df.low_quality_desc.sum()))

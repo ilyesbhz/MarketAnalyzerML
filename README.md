@@ -6,17 +6,22 @@ Source: public job postings on Tanitjobs (collected via the public sitemap, resp
 ## Pipeline
 
 ```
-sitemap -> job URLs -> raw HTML pages -> parsed + cleaned dataset -> evaluation sample
-                                                |
-                         (next) LLM + trained text classifiers -> PostgreSQL -> analysis -> dashboard
+Tanitjobs sitemap -> raw pages -> jobs_clean.csv --+
+                                                   +-> PostgreSQL -> extraction (rules + local LLM)
+Adzuna API -> raw results -------------------------+        |
+                                                            +-> salary model -> quality checks
+                                                            +-> JSON exports -> web app import
 ```
 
-| Step | Command (run from the project root) | Output |
-|---|---|---|
-| 1a. Get job URLs | `python -m src.collection.get_urls` | `data/interim/job_urls.json` |
-| 1b. Download pages | `python -m src.collection.scrape_all` (`--limit 100` to test) | `data/raw/*.html.gz` |
-| 2. Parse + clean | `python -m src.parsing.parse_all` | `data/processed/jobs_clean.csv` / `.json` |
-| 3. Evaluation sample | `python -m src.evaluation.make_gold_sample` | `data/gold/gold_sample.csv` |
+Run everything (this is what Windows Task Scheduler runs through `run_daily.bat`):
+
+```
+python -m src.pipeline.run_daily
+python -m src.pipeline.run_daily --only tanitjobs      one branch: tanitjobs | adzuna | quality
+```
+
+First-time database setup: `python -m src.database.init_db`. To inspect the data:
+`python -m src.database.summary` and `python -m src.database.show_views`.
 
 All paths and settings live in `config.py` (set your contact email in `USER_AGENT` before scraping).
 
@@ -47,7 +52,10 @@ The command trains TF-IDF + Logistic Regression for seniority and TF-IDF + Linea
 for remote-work type. Tools are not learned: with ~120 distinct tools in ~260 labeled
 jobs most tools have only 1-2 examples, so a one-vs-rest classifier predicted nothing
 (F1 = 0). Tools come from the dictionary extractor (`detect_tools` in
-`src/extraction/rules.py`), scored on every labeled job (F1 ≈ 0.81). Models, test
+`src/extraction/rules.py`), scored on every labeled job (F1 ≈ 0.82, lenient match). This is
+NOT a held-out score: part of the dictionary was added after reading the errors on these same
+jobs, test set included. Without those additions the test set (30 jobs) scores F1 ≈ 0.53;
+a fair estimate needs newly labeled jobs. Models, test
 predictions, metrics and the list of tool errors (`tools_rule_errors.csv`) are saved
 under `data/models/`.
 
@@ -64,13 +72,13 @@ python -m src.models.train_salary --write-db   same, and store them in the datab
 - Classes: `<1000`, `1000-1500`, `1500-2000`, `>=2000` (the small top/bottom brackets are merged).
 - Features: title and description (TF-IDF), experience years, education level, category,
   region, contract types, languages. Rule-based seniority and tools were tested and did
-  not improve the score, so the simpler model is kept.
+  not improve the score; rerun that comparison with `--compare-features`.
 - Evaluation: 5-fold cross-validation grouped by company (a company's postings are never
   in both training and validation), then a time-based hold-out (train on older postings,
   test on the newest 20%). Compared against an "always the most frequent bracket" baseline.
-- Results (Logistic Regression): macro F1 ≈ 0.50 in cross-validation and ≈ 0.56 on the
-  newest postings, against 0.17 for the baseline; about 93% of predictions are at most one
-  bracket off. `1500-2000` is the hardest class.
+- Results (Logistic Regression): macro F1 ≈ 0.50 in cross-validation and ≈ 0.54 on the
+  newest postings, against 0.17 for the baseline; about 92% of predictions are at most one
+  bracket off in cross-validation (94% on the newest postings). `1500-2000` is the hardest class.
 - Output: `data/models/salary_bracket_*` (model, metrics, predictions) and the table
   `core.job_salary_prediction`. Estimates are kept apart from stated salaries in
   `core.fact_job` and from Adzuna's own estimates; show them as "estimated" and consider
@@ -84,23 +92,29 @@ The daily pipeline retrains the model and refreshes the table (step `salary_mode
 
 ```
 config.py            paths and settings
+run_daily.bat        entry point for Windows Task Scheduler
+sql/                 database schema, analytics views, dashboard role
 src/
-  collection/        get_urls.py, scrape_all.py
+  collection/        Tanitjobs URLs and pages, Adzuna API
   parsing/           parse_job.py (one page), parse_all.py (batch + cleaning + report)
-  evaluation/        make_gold_sample.py
-  extraction/        (planned) local LLM: seniority, skills, tools
-  database/          (planned) PostgreSQL schema and loading
-  analysis/          (planned) top skills, sectors, cities
+  common/            sector mapping
+  database/          schema setup, loading, extraction, summaries
+  extraction/        rules.py (dictionary and rules), llm_extract.py (Ollama)
+  evaluation/        labeling samples and scoring
   models/            train_classifiers.py (seniority, remote), train_salary.py (salary bracket)
-  dashboard/         (planned) Streamlit / Power BI
+  quality/           data-quality checks
+  export/            JSON exports and web app import
+  pipeline/          run_daily.py
 data/
-  raw/               downloaded pages, never edited
-  interim/           URL list, logs
+  raw/               downloaded pages, never edited (not in git)
+  interim/           URL list, API call log, Adzuna categories
   processed/         clean dataset
-  gold/              evaluation sample and reviewed labels
-  extracted/         (planned) LLM output
-exploration/         one-off scripts used while investigating the site
-docs/                report
+  reference/         sector mappings
+  gold/              hand-labeled samples
+  extracted/         LLM predictions on the labeled samples
+  models/            trained models, metrics, predictions
+exports/             JSON files read by the web app
+docs/                project notes and experiment log
 ```
 
 ## Setup
@@ -116,9 +130,3 @@ pip install -r requirements.txt
 - robots.txt read first: job pages are allowed; search-parameter URLs and CV pages are never used.
 - 1 request every 3 seconds, honest User-Agent with a contact email, resumable, stops after repeated errors.
 - Raw pages are saved once so parsing can be improved without contacting the site again.
-
-## Status
-
-Done: collection, parsing, cleaning (3,321 jobs, 28 Aug - 10 Oct 2026), evaluation sample.
-Next: local LLM extraction (Ollama), PostgreSQL, analysis, salary model, dashboard, daily scraping.
-"# MarketAnalyzerML" 

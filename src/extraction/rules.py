@@ -149,26 +149,19 @@ _CI = [
     "Office 365", "Pack Office", "Microsoft Office", "PowerPoint", "Outlook", "Jira", "Trello", "Slack",
     "Notion", "SQL", "Java", ".NET", "C#", "C++", "Microsoft Access", "MS Access", "Microsoft Teams", "MS Word",
     "Microsoft Word", "MS Excel", "Microsoft Excel",
-    # data / BI platforms
     "PowerBI", "Power Automate", "Power Apps", "SharePoint", "Looker", "Metabase", "BigQuery", "Redshift", "Databricks",
     "Snowflake", "dbt", "Delta Lake", "Microsoft Fabric", "Azure Synapse", "Synapse Analytics", "TimeXtender",
     "Informatica", "Fivetran", "Superset", "Grafana", "Prometheus", "Splunk", "Elasticsearch", "Kibana", "Redis",
     "RabbitMQ", "Postman", "GitHub", "GitLab",
-    # web / dev frameworks
     "Symfony", "Django", "Flask", "FastAPI", "Vue.js", "Next.js", "Spring", "PrestaShop", "Magento",
-    # sales / marketing / support tools
     "Apollo.io", "Lemlist", "Meta Business Suite", "Sales Navigator", "Zendesk", "Freshdesk", "ServiceNow", "Asana",
     "Monday.com", "Zoom", "Mailjet", "Brevo", "Sendinblue", "Semrush", "Ahrefs",
     "Lemlist", "Warmbly", "LinkedIn Campaign Manager", "Meta Ads Manager", "Search Console", "Google Search Console",
     "Google Sheets", "Miro", "Confluence",
-    # automation / AI
     "n8n", "Zapier", "OpenAI", "ChatGPT", "LangChain", "LangGraph", "LlamaIndex",
-    # web / backend
     "HTML", "CSS", "GraphQL", "NestJS", "Express.js", "ReactJS", "React.js", "Java EE", "JBoss", "Struts",
     "MariaDB", "T-SQL", "SSAS", "PySpark",
-    # cloud / data
     "Google Cloud", "GCP", "Azure Data Factory", "Azure Data Lake Storage", "Azure DevOps",
-    # industry-specific
     "Assyst CAD", "Orli", "Lectra", "Cisco Packet Tracer", "Solidity", "Ethereum", "Hyperledger Fabric",
 ]
 # ambiguous with ordinary words: matched case-sensitively
@@ -220,7 +213,7 @@ def detect_tools(text):
     """Named tools found in the text, in order of appearance.
 
     A match that sits inside a longer match is dropped, so 'Azure Data Factory' does not
-    also produce 'Azure', and 'Meta Ads Manager' does not also produce 'Meta Ads Manager' + 'Meta Ads'."""
+    also produce 'Azure'."""
     text = text or ""
     spans = []                                    # (start, end, canonical name)
     for name, pat in _TOOL_PATTERNS:

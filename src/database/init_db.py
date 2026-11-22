@@ -24,7 +24,7 @@ def main():
     with db.connect() as conn:
         print(conn.execute("SELECT version()").fetchone()[0])
         conn.execute(SCHEMA_SQL.read_text(encoding="utf-8"))
-        conn.execute(ANALYTICS_SQL.read_text(encoding="utf-8"))      # the analysis views (read by the dashboards)
+        conn.execute(ANALYTICS_SQL.read_text(encoding="utf-8"))
 
         for s in sectors:
             conn.execute("INSERT INTO core.dim_sector (name) VALUES (%s) "

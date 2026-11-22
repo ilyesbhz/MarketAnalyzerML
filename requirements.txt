@@ -1,7 +1,9 @@
 requests
 beautifulsoup4
 pandas
+numpy
 openpyxl
 python-dotenv
 scikit-learn
 joblib
+psycopg[binary]

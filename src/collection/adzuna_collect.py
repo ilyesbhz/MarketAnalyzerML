@@ -19,7 +19,7 @@ BASE = "https://api.adzuna.com/v1/api/jobs"
 
 def load_categories():
     if not config.ADZUNA_CATEGORIES_JSON.exists():
-        raise SystemExit("Run first:  python -m src.collection.adzuna_categories")
+        raise SystemExit(f"Missing {config.ADZUNA_CATEGORIES_JSON}: restore it with git checkout")
     with open(config.ADZUNA_CATEGORIES_JSON, encoding="utf-8") as f:
         data = json.load(f)
     return {c: [x["tag"] for x in data.get(c, []) if x["tag"] != "unknown"]
