@@ -3,7 +3,7 @@
   "country": "tn",
   "sector": "Administration & Management",
   "seniority": "unspecified",
-  "jobs": 692,
+  "jobs": 693,
   "pct": 90.2
  },
  {
@@ -255,8 +255,8 @@
   "country": "tn",
   "sector": "Engineering",
   "seniority": "unspecified",
-  "jobs": 317,
-  "pct": 77.3
+  "jobs": 318,
+  "pct": 77.4
  },
  {
   "country": "tn",
@@ -270,7 +270,7 @@
   "sector": "Engineering",
   "seniority": "junior",
   "jobs": 31,
-  "pct": 7.6
+  "pct": 7.5
  },
  {
   "country": "tn",
@@ -290,7 +290,7 @@
   "country": "tn",
   "sector": "Finance & Accounting",
   "seniority": "unspecified",
-  "jobs": 357,
+  "jobs": 358,
   "pct": 69.6
  },
  {
@@ -619,7 +619,7 @@
   "country": "tn",
   "sector": "Sales & Retail",
   "seniority": "unspecified",
-  "jobs": 855,
+  "jobs": 857,
   "pct": 86.1
  },
  {

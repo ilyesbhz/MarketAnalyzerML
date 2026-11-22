@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T08:06:35+00:00",
+ "generated_at": "2026-11-22T19:00:04+00:00",
  "rows": {
   "market_overview": 3,
   "sector_summary": 67,
@@ -14,11 +14,11 @@
  "data_window": {
   "fr": {
    "first_posting": "2022-05-24",
-   "last_posting": "2026-11-20"
+   "last_posting": "2026-11-21"
   },
   "gb": {
    "first_posting": "2026-10-20",
-   "last_posting": "2026-11-20"
+   "last_posting": "2026-11-21"
   },
   "tn": {
    "first_posting": "2026-08-28",
@@ -30,7 +30,7 @@
   "Pay percentile shows where a salary sits among the stated salaries of its own country (50 = typical). It lets Tunisia, France and the UK be compared without converting currencies.",
   "Only a minority of postings state a salary (about 20% in Tunisia), so salary figures describe the postings that publish pay, not the whole market.",
   "Adzuna sector sizes depend on our sampling (the newest 50 postings per category and day): compare sectors on pay, not on number of jobs.",
-  "Estimated salary brackets (Tunisia only) come from a model trained on the postings that state a bracket. It picks the right bracket about 62% of the time and is at most one bracket off about 93% of the time. Estimates are kept apart from stated salaries and are never used in medians or pay percentiles.",
+  "Estimated salary brackets (Tunisia only) come from a model trained on the postings that state a bracket. In company-grouped cross-validation it picks the right bracket about 62% of the time and is at most one bracket off about 92% of the time. Estimates are kept apart from stated salaries and are never used in medians or pay percentiles.",
   "Tools and seniority are extracted only for Tunisian postings. Adzuna descriptions are cut at 500 characters. A tool is counted only when the posting names it."
  ]
 }

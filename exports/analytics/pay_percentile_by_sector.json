@@ -2,56 +2,56 @@
  {
   "sector": "Customer Service",
   "tn": 70.3,
-  "fr": 28.4,
-  "gb": 33.7
+  "fr": 28.8,
+  "gb": 33.4
  },
  {
   "sector": "IT, Data & Telecom",
   "tn": 58.3,
-  "fr": 76.4,
-  "gb": 80.3
+  "fr": 76.9,
+  "gb": 80.9
  },
  {
   "sector": "Engineering",
-  "tn": 54.3,
-  "fr": 65.1,
-  "gb": 68.7
+  "tn": 54.4,
+  "fr": 64.1,
+  "gb": 68.4
  },
  {
   "sector": "Industry & Manufacturing",
   "tn": 52.4,
-  "fr": 34.4,
-  "gb": 43.3
+  "fr": 34.5,
+  "gb": 43.1
  },
  {
   "sector": "Education & Training",
   "tn": 50.7,
-  "fr": 54.4,
-  "gb": 47.2
+  "fr": 54.1,
+  "gb": 46.8
  },
  {
   "sector": "Hospitality, Tourism & Personal Services",
   "tn": 50.4,
-  "fr": 41,
-  "gb": 29.5
+  "fr": 40.6,
+  "gb": 29.4
  },
  {
   "sector": "Construction & Property",
-  "tn": 49.9,
+  "tn": 50,
   "fr": 50.6,
-  "gb": 66.1
+  "gb": 65.7
  },
  {
   "sector": "Finance & Accounting",
   "tn": 49.5,
-  "fr": 61.7,
-  "gb": 64.4
+  "fr": 61.4,
+  "gb": 64.2
  },
  {
   "sector": "Logistics, Transport & Supply Chain",
-  "tn": 46.3,
-  "fr": 32.2,
-  "gb": 43.7
+  "tn": 46.4,
+  "fr": 33.7,
+  "gb": 43.3
  },
  {
   "sector": "Agriculture & Agri-food",
@@ -61,80 +61,80 @@
  },
  {
   "sector": "Marketing & Communication",
-  "tn": 45,
-  "fr": 61.3,
-  "gb": 58.7
+  "tn": 45.1,
+  "fr": 60.4,
+  "gb": 58.6
  },
  {
   "sector": "Science, Research & Quality",
   "tn": 44.9,
-  "fr": 51.3,
+  "fr": 51.7,
   "gb": 62
  },
  {
   "sector": "Sales & Retail",
   "tn": 42.9,
-  "fr": 52.1,
+  "fr": 51.7,
   "gb": 48.1
  },
  {
   "sector": "Creative & Design",
-  "tn": 41.5,
-  "fr": 49.3,
-  "gb": 60.5
+  "tn": 41.6,
+  "fr": 50.5,
+  "gb": 60.7
  },
  {
   "sector": "Consulting & Strategy",
-  "tn": 41.4,
-  "fr": 65.6,
-  "gb": 65.4
+  "tn": 41.5,
+  "fr": 65.7,
+  "gb": 66
  },
  {
   "sector": "Administration & Management",
   "tn": 40.8,
-  "fr": 55,
+  "fr": 54.6,
   "gb": 37
  },
  {
   "sector": "Healthcare & Pharma",
-  "tn": 39.6,
-  "fr": 46,
+  "tn": 39.7,
+  "fr": 46.3,
   "gb": 54.8
  },
  {
   "sector": "Maintenance & Technical Trades",
   "tn": null,
-  "fr": 45.8,
-  "gb": 49.5
+  "fr": 46.6,
+  "gb": 50
  },
  {
   "sector": "Human Resources",
   "tn": null,
   "fr": 44.5,
-  "gb": 56.9
+  "gb": 57
  },
  {
   "sector": "Legal",
   "tn": null,
-  "fr": 70.9,
-  "gb": 71
+  "fr": 71,
+  "gb": 70.9
  },
  {
   "sector": "Energy & Environment",
   "tn": null,
-  "fr": 69,
-  "gb": 63
+  "fr": 69.2,
+  "gb": 62.7
  },
  {
   "sector": "Social & Public Services",
   "tn": null,
-  "fr": 54.3,
-  "gb": 43.2
+  "fr": 51,
+  "gb": 43.3
  },
  {
   "sector": "Other / General",
   "tn": null,
-  "fr": 46.1,
+  "fr": 45.4,
   "gb": 34.8
  }
 ]

@@ -2,116 +2,116 @@
  {
   "country": "fr",
   "region": "Ile-de-France",
-  "jobs": 4012,
-  "active_jobs": 3351,
-  "jobs_with_salary": 1564,
+  "jobs": 4318,
+  "active_jobs": 3338,
+  "jobs_with_salary": 1650,
   "median_salary_per_year": 40000,
   "avg_pay_percentile": 65.2
  },
  {
   "country": "fr",
   "region": "Auvergne-Rhône-Alpes",
-  "jobs": 2204,
-  "active_jobs": 1896,
-  "jobs_with_salary": 1060,
+  "jobs": 2384,
+  "active_jobs": 1938,
+  "jobs_with_salary": 1163,
   "median_salary_per_year": 30000,
-  "avg_pay_percentile": 50.4
+  "avg_pay_percentile": 50.3
  },
  {
   "country": "fr",
   "region": "Nouvelle-Aquitaine",
-  "jobs": 1445,
-  "active_jobs": 1234,
-  "jobs_with_salary": 784,
-  "median_salary_per_year": 25200,
-  "avg_pay_percentile": 41.1
+  "jobs": 1516,
+  "active_jobs": 1239,
+  "jobs_with_salary": 818,
+  "median_salary_per_year": 25000,
+  "avg_pay_percentile": 40.8
  },
  {
   "country": "fr",
   "region": "Provence-Alpes-Côte d'Azur",
-  "jobs": 1263,
-  "active_jobs": 1095,
-  "jobs_with_salary": 616,
-  "median_salary_per_year": 30245,
+  "jobs": 1329,
+  "active_jobs": 1094,
+  "jobs_with_salary": 636,
+  "median_salary_per_year": 30400,
   "avg_pay_percentile": 51.1
  },
  {
   "country": "fr",
   "region": "Occitanie",
-  "jobs": 1207,
-  "active_jobs": 1028,
-  "jobs_with_salary": 609,
-  "median_salary_per_year": 29000,
-  "avg_pay_percentile": 47.6
+  "jobs": 1312,
+  "active_jobs": 1065,
+  "jobs_with_salary": 676,
+  "median_salary_per_year": 28105,
+  "avg_pay_percentile": 46.8
  },
  {
   "country": "fr",
   "region": "Grand-Est",
-  "jobs": 1154,
-  "active_jobs": 1000,
-  "jobs_with_salary": 571,
+  "jobs": 1210,
+  "active_jobs": 1007,
+  "jobs_with_salary": 593,
   "median_salary_per_year": 25480,
-  "avg_pay_percentile": 41.8
+  "avg_pay_percentile": 42.3
  },
  {
   "country": "fr",
   "region": "Pays de la Loire",
-  "jobs": 1061,
-  "active_jobs": 912,
-  "jobs_with_salary": 553,
-  "median_salary_per_year": 25480,
-  "avg_pay_percentile": 42.1
+  "jobs": 1130,
+  "active_jobs": 926,
+  "jobs_with_salary": 567,
+  "median_salary_per_year": 25500,
+  "avg_pay_percentile": 42.2
  },
  {
   "country": "fr",
   "region": "Hauts-De-France",
-  "jobs": 1030,
-  "active_jobs": 861,
-  "jobs_with_salary": 466,
+  "jobs": 1076,
+  "active_jobs": 843,
+  "jobs_with_salary": 483,
   "median_salary_per_year": 28000,
-  "avg_pay_percentile": 46.3
+  "avg_pay_percentile": 46.1
  },
  {
   "country": "fr",
   "region": "Bretagne",
-  "jobs": 880,
-  "active_jobs": 769,
-  "jobs_with_salary": 436,
+  "jobs": 915,
+  "active_jobs": 750,
+  "jobs_with_salary": 453,
   "median_salary_per_year": 25480,
-  "avg_pay_percentile": 41.4
+  "avg_pay_percentile": 41.5
  },
  {
   "country": "fr",
   "region": "Normandie",
-  "jobs": 730,
+  "jobs": 774,
   "active_jobs": 648,
-  "jobs_with_salary": 389,
-  "median_salary_per_year": 29900,
-  "avg_pay_percentile": 45.9
+  "jobs_with_salary": 412,
+  "median_salary_per_year": 29120,
+  "avg_pay_percentile": 46
  },
  {
   "country": "fr",
   "region": "Bourgogne-Franche-Comté",
-  "jobs": 610,
-  "active_jobs": 509,
-  "jobs_with_salary": 324,
-  "median_salary_per_year": 25640,
-  "avg_pay_percentile": 41.9
+  "jobs": 634,
+  "active_jobs": 498,
+  "jobs_with_salary": 337,
+  "median_salary_per_year": 25800,
+  "avg_pay_percentile": 41.8
  },
  {
   "country": "fr",
   "region": "Centre",
-  "jobs": 576,
+  "jobs": 604,
   "active_jobs": 504,
-  "jobs_with_salary": 317,
-  "median_salary_per_year": 27500,
-  "avg_pay_percentile": 47.2
+  "jobs_with_salary": 330,
+  "median_salary_per_year": 27800,
+  "avg_pay_percentile": 47.1
  },
  {
   "country": "fr",
   "region": "DOM-TOM",
-  "jobs": 270,
-  "active_jobs": 216,
+  "jobs": 293,
+  "active_jobs": 233,
   "jobs_with_salary": 50,
   "median_salary_per_year": 32000,
   "avg_pay_percentile": 53
@@ -119,28 +119,37 @@
  {
   "country": "fr",
   "region": "Pays-de-la-Loire",
-  "jobs": 37,
+  "jobs": 40,
   "active_jobs": 32,
   "jobs_with_salary": 24,
   "median_salary_per_year": 23660,
-  "avg_pay_percentile": 29.8
+  "avg_pay_percentile": 29.7
  },
  {
   "country": "fr",
   "region": "Corse",
-  "jobs": 30,
+  "jobs": 33,
   "active_jobs": 29,
-  "jobs_with_salary": 9,
-  "median_salary_per_year": 35000,
+  "jobs_with_salary": 12,
+  "median_salary_per_year": 31970,
   "avg_pay_percentile": null
  },
  {
   "country": "fr",
   "region": "Paysde-la-Loire",
   "jobs": 16,
-  "active_jobs": 11,
+  "active_jobs": 9,
   "jobs_with_salary": 12,
   "median_salary_per_year": 23660,
+  "avg_pay_percentile": null
+ },
+ {
+  "country": "fr",
+  "region": "Centre-Val-de-Loire",
+  "jobs": 15,
+  "active_jobs": 13,
+  "jobs_with_salary": 5,
+  "median_salary_per_year": 35000,
   "avg_pay_percentile": null
  },
  {
@@ -150,15 +159,6 @@
   "active_jobs": 11,
   "jobs_with_salary": 8,
   "median_salary_per_year": 22775,
-  "avg_pay_percentile": null
- },
- {
-  "country": "fr",
-  "region": "Centre-Val-de-Loire",
-  "jobs": 12,
-  "active_jobs": 10,
-  "jobs_with_salary": 5,
-  "median_salary_per_year": 35000,
   "avg_pay_percentile": null
  },
  {
@@ -182,110 +182,110 @@
  {
   "country": "gb",
   "region": "London",
-  "jobs": 3107,
-  "active_jobs": 2609,
-  "jobs_with_salary": 1862,
-  "median_salary_per_year": 40000,
-  "avg_pay_percentile": 60.7
+  "jobs": 3245,
+  "active_jobs": 2526,
+  "jobs_with_salary": 1949,
+  "median_salary_per_year": 40032,
+  "avg_pay_percentile": 60.8
  },
  {
   "country": "gb",
   "region": "South East England",
-  "jobs": 2455,
-  "active_jobs": 2096,
-  "jobs_with_salary": 1755,
+  "jobs": 2534,
+  "active_jobs": 2063,
+  "jobs_with_salary": 1817,
   "median_salary_per_year": 32500,
-  "avg_pay_percentile": 48.1
+  "avg_pay_percentile": 47.8
  },
  {
   "country": "gb",
   "region": "North West England",
-  "jobs": 1727,
-  "active_jobs": 1466,
-  "jobs_with_salary": 1240,
+  "jobs": 1780,
+  "active_jobs": 1414,
+  "jobs_with_salary": 1275,
   "median_salary_per_year": 34000,
   "avg_pay_percentile": 49.2
  },
  {
   "country": "gb",
   "region": "Eastern England",
-  "jobs": 1575,
-  "active_jobs": 1360,
-  "jobs_with_salary": 1097,
-  "median_salary_per_year": 33009,
-  "avg_pay_percentile": 48.5
+  "jobs": 1619,
+  "active_jobs": 1308,
+  "jobs_with_salary": 1127,
+  "median_salary_per_year": 33000,
+  "avg_pay_percentile": 48.1
  },
  {
   "country": "gb",
   "region": "South West England",
-  "jobs": 1451,
-  "active_jobs": 1218,
-  "jobs_with_salary": 1028,
+  "jobs": 1501,
+  "active_jobs": 1167,
+  "jobs_with_salary": 1065,
   "median_salary_per_year": 32500,
-  "avg_pay_percentile": 47.3
+  "avg_pay_percentile": 47.2
  },
  {
   "country": "gb",
   "region": "West Midlands",
-  "jobs": 1419,
-  "active_jobs": 1213,
-  "jobs_with_salary": 1033,
+  "jobs": 1469,
+  "active_jobs": 1185,
+  "jobs_with_salary": 1069,
   "median_salary_per_year": 35000,
-  "avg_pay_percentile": 50.2
+  "avg_pay_percentile": 50.1
  },
  {
   "country": "gb",
   "region": "Scotland",
-  "jobs": 1196,
-  "active_jobs": 1057,
-  "jobs_with_salary": 825,
+  "jobs": 1226,
+  "active_jobs": 1045,
+  "jobs_with_salary": 844,
   "median_salary_per_year": 30000,
-  "avg_pay_percentile": 39.7
+  "avg_pay_percentile": 39.8
  },
  {
   "country": "gb",
   "region": "East Midlands",
-  "jobs": 1051,
-  "active_jobs": 901,
-  "jobs_with_salary": 772,
+  "jobs": 1086,
+  "active_jobs": 890,
+  "jobs_with_salary": 801,
   "median_salary_per_year": 31500,
   "avg_pay_percentile": 45.3
  },
  {
   "country": "gb",
   "region": "Yorkshire And The Humber",
-  "jobs": 1029,
-  "active_jobs": 885,
-  "jobs_with_salary": 736,
-  "median_salary_per_year": 32847,
-  "avg_pay_percentile": 47.4
- },
- {
-  "country": "gb",
-  "region": "Northern Ireland",
-  "jobs": 421,
-  "active_jobs": 373,
-  "jobs_with_salary": 237,
-  "median_salary_per_year": 35000,
-  "avg_pay_percentile": 48.2
+  "jobs": 1071,
+  "active_jobs": 872,
+  "jobs_with_salary": 768,
+  "median_salary_per_year": 32621,
+  "avg_pay_percentile": 47
  },
  {
   "country": "gb",
   "region": "Wales",
-  "jobs": 413,
-  "active_jobs": 344,
-  "jobs_with_salary": 277,
+  "jobs": 458,
+  "active_jobs": 372,
+  "jobs_with_salary": 287,
   "median_salary_per_year": 33280,
-  "avg_pay_percentile": 49.1
+  "avg_pay_percentile": 49.2
+ },
+ {
+  "country": "gb",
+  "region": "Northern Ireland",
+  "jobs": 425,
+  "active_jobs": 357,
+  "jobs_with_salary": 241,
+  "median_salary_per_year": 34242,
+  "avg_pay_percentile": 47.4
  },
  {
   "country": "gb",
   "region": "North East England",
-  "jobs": 346,
-  "active_jobs": 301,
-  "jobs_with_salary": 206,
-  "median_salary_per_year": 30866,
-  "avg_pay_percentile": 44
+  "jobs": 374,
+  "active_jobs": 308,
+  "jobs_with_salary": 225,
+  "median_salary_per_year": 30732,
+  "avg_pay_percentile": 43.5
  },
  {
   "country": "gb",
@@ -299,8 +299,8 @@
  {
   "country": "tn",
   "region": "Tunis",
-  "jobs": 2421,
-  "active_jobs": 1022,
+  "jobs": 2423,
+  "active_jobs": 954,
   "jobs_with_salary": 564,
   "median_salary_per_year": 15000,
   "avg_pay_percentile": 55.1
@@ -308,26 +308,26 @@
  {
   "country": "tn",
   "region": "Ariana",
-  "jobs": 962,
-  "active_jobs": 443,
-  "jobs_with_salary": 231,
+  "jobs": 964,
+  "active_jobs": 415,
+  "jobs_with_salary": 233,
   "median_salary_per_year": 9000,
-  "avg_pay_percentile": 43.5
+  "avg_pay_percentile": 43.4
  },
  {
   "country": "tn",
   "region": "Sousse",
   "jobs": 829,
-  "active_jobs": 377,
+  "active_jobs": 345,
   "jobs_with_salary": 181,
   "median_salary_per_year": 15000,
-  "avg_pay_percentile": 49.8
+  "avg_pay_percentile": 49.9
  },
  {
   "country": "tn",
   "region": "Ben Arous",
-  "jobs": 740,
-  "active_jobs": 325,
+  "jobs": 741,
+  "active_jobs": 295,
   "jobs_with_salary": 119,
   "median_salary_per_year": 9000,
   "avg_pay_percentile": 45
@@ -336,16 +336,16 @@
   "country": "tn",
   "region": "Sfax",
   "jobs": 665,
-  "active_jobs": 276,
+  "active_jobs": 250,
   "jobs_with_salary": 104,
   "median_salary_per_year": 9000,
-  "avg_pay_percentile": 38.9
+  "avg_pay_percentile": 39
  },
  {
   "country": "tn",
   "region": "Nabeul",
   "jobs": 386,
-  "active_jobs": 172,
+  "active_jobs": 160,
   "jobs_with_salary": 67,
   "median_salary_per_year": 9000,
   "avg_pay_percentile": 43.4
@@ -354,7 +354,7 @@
   "country": "tn",
   "region": "Monastir",
   "jobs": 380,
-  "active_jobs": 151,
+  "active_jobs": 144,
   "jobs_with_salary": 60,
   "median_salary_per_year": 9000,
   "avg_pay_percentile": 44.2
@@ -363,7 +363,7 @@
   "country": "tn",
   "region": "Zaghouan",
   "jobs": 120,
-  "active_jobs": 67,
+  "active_jobs": 64,
   "jobs_with_salary": 12,
   "median_salary_per_year": 15000,
   "avg_pay_percentile": null
@@ -372,25 +372,25 @@
   "country": "tn",
   "region": "Bizerte",
   "jobs": 109,
-  "active_jobs": 52,
+  "active_jobs": 47,
   "jobs_with_salary": 19,
   "median_salary_per_year": 15000,
-  "avg_pay_percentile": 57.2
+  "avg_pay_percentile": 57.3
  },
  {
   "country": "tn",
   "region": "La Manouba",
   "jobs": 98,
-  "active_jobs": 49,
+  "active_jobs": 46,
   "jobs_with_salary": 16,
   "median_salary_per_year": 9000,
-  "avg_pay_percentile": 34.8
+  "avg_pay_percentile": 34.9
  },
  {
   "country": "tn",
   "region": "Médenine",
   "jobs": 62,
-  "active_jobs": 25,
+  "active_jobs": 24,
   "jobs_with_salary": 12,
   "median_salary_per_year": 12000,
   "avg_pay_percentile": null
@@ -399,7 +399,7 @@
   "country": "tn",
   "region": "Gabès",
   "jobs": 58,
-  "active_jobs": 25,
+  "active_jobs": 24,
   "jobs_with_salary": 10,
   "median_salary_per_year": 15000,
   "avg_pay_percentile": null
@@ -408,7 +408,7 @@
   "country": "tn",
   "region": "Kairouan",
   "jobs": 48,
-  "active_jobs": 23,
+  "active_jobs": 22,
   "jobs_with_salary": 4,
   "median_salary_per_year": 15000,
   "avg_pay_percentile": null
@@ -417,7 +417,7 @@
   "country": "tn",
   "region": "Mahdia",
   "jobs": 41,
-  "active_jobs": 27,
+  "active_jobs": 22,
   "jobs_with_salary": 8,
   "median_salary_per_year": 9000,
   "avg_pay_percentile": null
@@ -444,7 +444,7 @@
   "country": "tn",
   "region": "Siliana",
   "jobs": 6,
-  "active_jobs": 5,
+  "active_jobs": 4,
   "jobs_with_salary": 1,
   "median_salary_per_year": 30000,
   "avg_pay_percentile": null
