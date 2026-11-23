@@ -1,0 +1,104 @@
+{
+  "test_source": "fresh_reviewed_sample_labeled.xlsx",
+  "test_jobs": 150,
+  "development_jobs": 250,
+  "seniority": {
+    "test": {
+      "jobs": 150,
+      "rules": {
+        "accuracy": 0.88,
+        "macro_f1": 0.6948213908264638
+      },
+      "trained_model": {
+        "accuracy": 0.7933333333333333,
+        "macro_f1": 0.28751131221719456
+      },
+      "majority": {
+        "accuracy": 0.7933333333333333,
+        "macro_f1": 0.17695167286245353
+      }
+    },
+    "development": {
+      "jobs": 236,
+      "rules": {
+        "accuracy": 0.885593220338983,
+        "macro_f1": 0.8143968318287896
+      },
+      "trained_model": {
+        "accuracy": 0.7669491525423728,
+        "macro_f1": 0.42550314465408806
+      },
+      "majority": {
+        "accuracy": 0.7161016949152542,
+        "macro_f1": 0.16691358024691358
+      }
+    }
+  },
+  "remote": {
+    "test": {
+      "jobs": 150,
+      "rules": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0
+      },
+      "trained_model": {
+        "accuracy": 0.9333333333333333,
+        "macro_f1": 0.2422145328719723
+      },
+      "majority": {
+        "accuracy": 0.98,
+        "macro_f1": 0.32996632996632996
+      }
+    },
+    "development": {
+      "jobs": 250,
+      "rules": {
+        "accuracy": 0.76,
+        "macro_f1": 0.6404185288809757
+      },
+      "trained_model": {
+        "accuracy": 0.696,
+        "macro_f1": 0.5089301759880878
+      },
+      "majority": {
+        "accuracy": 0.628,
+        "macro_f1": 0.1928746928746929
+      }
+    },
+    "test_workmode_jobs": {
+      "jobs": 50,
+      "rules": {
+        "accuracy": 0.92,
+        "macro_f1": 0.9377289377289377
+      }
+    }
+  },
+  "is_managerial": {
+    "jobs": 150,
+    "managers": 26,
+    "precision": 0.8571428571428571,
+    "recall": 0.9230769230769231
+  },
+  "tools_test": {
+    "jobs": 150,
+    "jobs_with_tools": 26,
+    "precision_micro": 0.7666666666666667,
+    "recall_micro": 0.8214285714285714,
+    "f1_micro": 0.793103448275862,
+    "tp": 46,
+    "fp": 14,
+    "fn": 10,
+    "exact_match_per_job": 0.8733333333333333
+  },
+  "tools_development": {
+    "jobs": 250,
+    "jobs_with_tools": 34,
+    "precision_micro": 0.7488372093023256,
+    "recall_micro": 0.8994413407821229,
+    "f1_micro": 0.817258883248731,
+    "tp": 161,
+    "fp": 54,
+    "fn": 18,
+    "exact_match_per_job": 0.86
+  }
+}

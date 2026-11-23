@@ -7,6 +7,7 @@
     ">=2000"
   ],
   "labeled_jobs": 1458,
+  "model": "salary_mix",
   "cross_validation": {
     "method": "5-fold GroupKFold by company",
     "results": {
@@ -14,65 +15,102 @@
         "accuracy": 0.48148148148148145,
         "macro_f1": 0.1625,
         "within_one_bracket": 0.7942386831275721,
-        "mean_abs_bracket_error": 0.8182441700960219
+        "mean_abs_bracket_error": 0.8182441700960219,
+        "confidence_error": 0.5185185185185186
       },
-      "logreg_base": {
+      "logreg (previous model)": {
         "accuracy": 0.6186556927297668,
         "macro_f1": 0.4997815121631205,
         "within_one_bracket": 0.9183813443072703,
-        "mean_abs_bracket_error": 0.48010973936899864
+        "mean_abs_bracket_error": 0.48010973936899864,
+        "confidence_error": 0.09370599821602649
       },
-      "ordinal_ridge_base": {
-        "accuracy": 0.6008230452674898,
-        "macro_f1": 0.4753454899071026,
-        "within_one_bracket": 0.9636488340192044,
-        "mean_abs_bracket_error": 0.43621399176954734
+      "salary_mix": {
+        "accuracy": 0.6213991769547325,
+        "macro_f1": 0.5140704686681001,
+        "within_one_bracket": 0.9430727023319616,
+        "mean_abs_bracket_error": 0.4458161865569273,
+        "confidence_error": 0.03978521351309526
       }
     }
   },
-  "best": "logreg_base",
-  "confusion_matrix_best": [
+  "confusion_matrix": [
     [
-      560,
-      111,
-      21,
+      534,
+      147,
+      17,
+      4
+    ],
+    [
+      105,
+      275,
+      66,
       10
     ],
     [
-      126,
-      246,
-      60,
-      24
+      11,
+      81,
+      52,
+      19
     ],
     [
-      19,
-      70,
-      32,
-      42
-    ],
-    [
-      15,
+      11,
       30,
-      28,
-      64
+      51,
+      45
     ]
   ],
   "time_holdout": {
     "test_from": "2026-11-05",
     "train_jobs": 1162,
     "test_jobs": 296,
+    "unseen_company_jobs": 164,
     "results": {
-      "baseline_majority": {
-        "accuracy": 0.5067567567567568,
-        "macro_f1": 0.1681614349775785,
-        "within_one_bracket": 0.8445945945945946,
-        "mean_abs_bracket_error": 0.7364864864864865
+      "all": {
+        "baseline_majority": {
+          "accuracy": 0.5067567567567568,
+          "macro_f1": 0.1681614349775785,
+          "within_one_bracket": 0.8445945945945946,
+          "mean_abs_bracket_error": 0.7364864864864865,
+          "confidence_error": 0.4932432432432432
+        },
+        "logreg (previous model)": {
+          "accuracy": 0.6317567567567568,
+          "macro_f1": 0.5422479873411561,
+          "within_one_bracket": 0.9391891891891891,
+          "mean_abs_bracket_error": 0.44594594594594594,
+          "confidence_error": 0.08536145258895714
+        },
+        "salary_mix": {
+          "accuracy": 0.6452702702702703,
+          "macro_f1": 0.5266150136350791,
+          "within_one_bracket": 0.9459459459459459,
+          "mean_abs_bracket_error": 0.4189189189189189,
+          "confidence_error": 0.05625914302808373
+        }
       },
-      "logreg_base": {
-        "accuracy": 0.6317567567567568,
-        "macro_f1": 0.5422479873411561,
-        "within_one_bracket": 0.9391891891891891,
-        "mean_abs_bracket_error": 0.44594594594594594
+      "unseen_companies": {
+        "baseline_majority": {
+          "accuracy": 0.5304878048780488,
+          "macro_f1": 0.17330677290836655,
+          "within_one_bracket": 0.8780487804878049,
+          "mean_abs_bracket_error": 0.6707317073170732,
+          "confidence_error": 0.4695121951219512
+        },
+        "logreg (previous model)": {
+          "accuracy": 0.5670731707317073,
+          "macro_f1": 0.4037919627542269,
+          "within_one_bracket": 0.9207317073170732,
+          "mean_abs_bracket_error": 0.5304878048780488,
+          "confidence_error": 0.15156858218146374
+        },
+        "salary_mix": {
+          "accuracy": 0.6280487804878049,
+          "macro_f1": 0.4784460703300064,
+          "within_one_bracket": 0.9390243902439024,
+          "mean_abs_bracket_error": 0.45121951219512196,
+          "confidence_error": 0.09196033522773593
+        }
       }
     }
   }

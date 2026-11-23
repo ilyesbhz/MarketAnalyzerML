@@ -22,10 +22,11 @@ TOOL_WORDS = re.compile(
 
 def existing_ids():
     ids = set(load_gold("gold")[0].job_id)
-    try:
-        ids.update(load_gold("test")[0].job_id)
-    except SystemExit:
-        pass
+    for prefix in ("test", "fresh"):
+        try:
+            ids.update(load_gold(prefix)[0].job_id)
+        except SystemExit:
+            pass
     return ids
 
 

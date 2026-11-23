@@ -53,7 +53,7 @@ CAVEATS = [
     "Adzuna sector sizes depend on our sampling (the newest 50 postings per category and day): compare sectors "
     "on pay, not on number of jobs.",
     "Estimated salary brackets (Tunisia only) come from a model trained on the postings that state a bracket. "
-    "In company-grouped cross-validation it picks the right bracket about 62% of the time and is at most one bracket off about 92% of the time. "
+    "In company-grouped cross-validation it picks the right bracket about 62% of the time and is at most one bracket off about 94% of the time. "
     "Estimates are kept apart from stated salaries and are never used in medians or pay percentiles.",
     "Tools and seniority are extracted only for Tunisian postings. Adzuna descriptions are cut at 500 characters. "
     "A tool is counted only when the posting names it.",

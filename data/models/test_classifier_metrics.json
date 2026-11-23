@@ -1,18 +1,78 @@
 {
-  "train_source": "expanded_sample_labeled.xlsx",
   "test_source": "test_sample_labeled.xlsx",
-  "train_jobs": 264,
   "test_jobs": 30,
+  "development_jobs": 250,
   "seniority": {
-    "accuracy": 0.6,
-    "macro_f1": 0.4428571428571429
+    "test": {
+      "jobs": 25,
+      "rules": {
+        "accuracy": 0.8,
+        "macro_f1": 0.6328828828828829
+      },
+      "trained_model": {
+        "accuracy": 0.8,
+        "macro_f1": 0.6346153846153846
+      },
+      "majority": {
+        "accuracy": 0.72,
+        "macro_f1": 0.20930232558139536
+      }
+    },
+    "development": {
+      "jobs": 236,
+      "rules": {
+        "accuracy": 0.885593220338983,
+        "macro_f1": 0.8143968318287896
+      },
+      "trained_model": {
+        "accuracy": 0.7669491525423728,
+        "macro_f1": 0.42550314465408806
+      },
+      "majority": {
+        "accuracy": 0.7161016949152542,
+        "macro_f1": 0.16691358024691358
+      }
+    }
   },
   "remote": {
-    "accuracy": 0.7666666666666667,
-    "macro_f1": 0.2893081761006289
+    "test": {
+      "jobs": 30,
+      "rules": {
+        "accuracy": 0.9,
+        "macro_f1": 0.6484848484848484
+      },
+      "trained_model": {
+        "accuracy": 0.7666666666666667,
+        "macro_f1": 0.2893081761006289
+      },
+      "majority": {
+        "accuracy": 0.8666666666666667,
+        "macro_f1": 0.30952380952380953
+      }
+    },
+    "development": {
+      "jobs": 250,
+      "rules": {
+        "accuracy": 0.76,
+        "macro_f1": 0.6404185288809757
+      },
+      "trained_model": {
+        "accuracy": 0.696,
+        "macro_f1": 0.5089301759880878
+      },
+      "majority": {
+        "accuracy": 0.628,
+        "macro_f1": 0.1928746928746929
+      }
+    }
+  },
+  "is_managerial": {
+    "jobs": 30,
+    "managers": 5,
+    "precision": 1.0,
+    "recall": 0.8
   },
   "tools_test": {
-    "method": "dictionary rules (detect_tools), lenient match",
     "jobs": 30,
     "jobs_with_tools": 9,
     "precision_micro": 0.7727272727272727,
@@ -21,20 +81,17 @@
     "tp": 17,
     "fp": 5,
     "fn": 3,
-    "exact_match_per_job": 0.8666666666666667,
-    "no_tool_jobs_predicted_empty": 0.9523809523809523
+    "exact_match_per_job": 0.8666666666666667
   },
-  "tools_all_labeled": {
-    "method": "dictionary rules (detect_tools), lenient match",
-    "jobs": 294,
-    "jobs_with_tools": 57,
-    "precision_micro": 0.7611336032388664,
-    "recall_micro": 0.8826291079812206,
-    "f1_micro": 0.817391304347826,
-    "tp": 188,
-    "fp": 59,
-    "fn": 25,
-    "exact_match_per_job": 0.8537414965986394,
-    "no_tool_jobs_predicted_empty": 0.919831223628692
+  "tools_development": {
+    "jobs": 250,
+    "jobs_with_tools": 34,
+    "precision_micro": 0.7488372093023256,
+    "recall_micro": 0.8994413407821229,
+    "f1_micro": 0.817258883248731,
+    "tp": 161,
+    "fp": 54,
+    "fn": 18,
+    "exact_match_per_job": 0.86
   }
 }

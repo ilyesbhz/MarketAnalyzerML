@@ -17,15 +17,32 @@ def fold(s):
 # Decided on the folded text (accents removed, lower case). Checked against 200 hand-labeled jobs:
 #  - "sur site" alone is NOT used: it usually means field work ("depannage sur site chez le client")
 #  - "hybride" alone is NOT used: "vehicule hybride", "environnements hybrides" are not a work mode
+#  - "presentiel" / "base sur site" alone are the weakest onsite evidence: used only when nothing else is
+#    found, and not next to a remote word or a task ("entretien presentiel ou telephonique")
+#  - "en presentiel ou a distance" is hybrid only for teaching ("cours en ligne et en presentiel"); for
+#    other jobs it describes a task ("rendez-vous en presentiel ou a distance")
+#  - a work-mode word in the title ("... | Teletravail", "- Home Office") states the mode of the job
+NO_REMOTE = re.compile(
+    r"(pas de|sans|aucun|non|no|kein|ni)\W{0,3}(teletravail|remote|home ?office|travail a distance)|teletravail (non|impossible|exclu)")
+MIXED = re.compile(
+    r"hybrid\w*\s+in[- ]office|presentiel\s+\d\s+jours?|\d\s+(jours?|days?)\s*(/\s*\w+\s*)?(de |en |of )?(teletravail|remote)|"
+    r"remote\s+\d\s+days?|presentiel\s+ou\s+hybride|partie du travail\s+(\w+\s+){0,4}a distance|"
+    r"(cours|formations?|seances?)\s+(\w+\s+){0,4}((en\s+)?presentiel\s+(ou|et)\s+(en\s+)?(a distance|en ligne)|"
+    r"(a distance|en ligne)\s+(ou|et)\s+(en\s+)?presentiel)")
 ONSITE = re.compile(
-    r"(pas de|sans|aucun|non|no|kein|ni)\W{0,3}(teletravail|remote|home ?office|travail a distance)|teletravail (non|impossible|exclu)|"
     r"(100\s?%|full|entierement|uniquement|exclusivement)\W{0,3}(presentiel|sur site|vor ort|on[- ]?site)|\bvor ort\b|"
     r"presence (physique )?(sur site|obligatoire)|(poste|travail)\W{0,3}(sur site|en presentiel)|"
-    r"on[- ]?site (position|role|only|job)|in[- ]office|presentiel (uniquement|obligatoire|exclusif)")
+    r"on[- ]?site (position|role|only|job)|in[- ]office")
+WEAK_ONSITE = re.compile(r"\bpresentiel\b|(base|exerce)e?\s+sur\s+site")
+NEAR_REMOTE = re.compile(r"distan|en ligne|visio|telephon|hybrid|teletravail|remote|e-mail")
+TASK_BEFORE = re.compile(r"(prospection|rendez-vous|entretiens?|prospects?)\W+(\S+\W+){0,6}$")
 REMOTE = re.compile(
     r"(100\s?%|full|fully|entierement|totalement|complet)\W{0,3}(remote|teletravail|a distance)|full[- ]?remote|remote[- ]only|"
     r"work location:?\s*remote|\bremote (in|from) \w+|(poste|travail|equipe|emploi)s?\s+(\w+\s+){0,2}en\s+teletravail|"
-    r"base[es]?\s+en\s+teletravail|travail\s+(entierement\s+)?a\s+distance|poste\s+(en\s+)?remote")
+    r"base[es]?\s+en\s+teletravail|travail\s+(\w+\s+)?a\s+distance|poste\s+(en\s+)?remote|"
+    r"(lieu|location|localisation)\s*:\s*[^\n]{0,30}teletravail")
+TITLE_REMOTE = re.compile(r"teletravail|home ?office|\bremote\b")
+TITLE_PARTIAL = re.compile(r"partiel|hybrid|possible|\d\s*(jours?|days?)")
 HYBRID = re.compile(
     r"teletravail (partiel|occasionnel|possible|ponctuel|selon|\d|hybride)|(possibilite|option|jours?|flexibilite|politique)\s+(de|d'|du|en)?\s*teletravail|"
     r"(travail|mode|modele|regime|format|organisation|poste|work(ing)?|schedule)\s+(en\s+|de\s+type\s+)?hybrid\w*|"
@@ -33,14 +50,25 @@ HYBRID = re.compile(
 
 
 def detect_remote(text):
-    """Return 'remote', 'hybrid', 'onsite' or 'unspecified'."""
+    """Return 'remote', 'hybrid', 'onsite' or 'unspecified'. The first line of text is the title."""
     t = fold(text)
+    title = t.split("\n", 1)[0]
+    if NO_REMOTE.search(t):
+        return "onsite"
+    if MIXED.search(t):
+        return "hybrid"
+    if TITLE_REMOTE.search(title) and not TITLE_PARTIAL.search(title):
+        return "remote"
     if ONSITE.search(t):
         return "onsite"
     if REMOTE.search(t):
         return "remote"
     if HYBRID.search(t):
         return "hybrid"
+    for m in WEAK_ONSITE.finditer(t):
+        if not (NEAR_REMOTE.search(t[max(0, m.start() - 40):m.end() + 40])
+                or TASK_BEFORE.search(t[max(0, m.start() - 60):m.start()])):
+            return "onsite"
     return "unspecified"
 
 

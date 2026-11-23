@@ -41,8 +41,6 @@ GOLD_LABELS_CSV = GOLD_DIR / "gold_labels.csv"
 
 # --- trained models ---
 CLASSIFIER_BUNDLE = MODEL_DIR / "job_text_classifiers.joblib"
-CLASSIFIER_PREDICTIONS = MODEL_DIR / "test_classifier_predictions.csv"
-CLASSIFIER_METRICS = MODEL_DIR / "test_classifier_metrics.json"
 TOOLS_RULE_ERRORS = MODEL_DIR / "tools_rule_errors.csv"
 SALARY_MODEL = MODEL_DIR / "salary_bracket_model.joblib"
 SALARY_PREDICTIONS = MODEL_DIR / "salary_bracket_predictions.csv"

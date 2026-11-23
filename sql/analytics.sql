@@ -118,7 +118,7 @@ GROUP BY source, country, date_posted;
 -- src.models.train_salary, for postings that are confidential or silent on pay). One row per sector
 -- and bracket, plus 'All sectors'. Percentages are within the sector and within each group, so the
 -- two distributions can be compared; pct_combined describes all postings of the sector.
--- Estimates are a model output (~62% exact, ~92% within one bracket): show them as estimates.
+-- Estimates are a model output (~62% exact, ~94% within one bracket): show them as estimates.
 CREATE OR REPLACE VIEW analytics.salary_estimate_summary AS
 WITH tn AS (
     SELECT j.sector,

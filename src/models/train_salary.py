@@ -8,20 +8,28 @@ are merged so every class has enough examples:
 
 Training rows: jobs with salary_kind == 'bracket' (duplicates removed).
 
-Two evaluations:
-  1. 5-fold GroupKFold by company (model selection): postings of one company are never in
-     both the training and the validation fold, otherwise the model memorises the company's pay.
-  2. Time-based hold-out (final check): train on the older postings, test on the most recent
-     20%, which is how the model is used on new postings every day.
-Metrics: accuracy, macro F1, within-one-bracket accuracy, mean absolute bracket error.
+Model (SalaryMix): the average of a class-balanced logistic regression, which finds the rare high
+brackets, and an ordinal one (P(pay >= 1000), P(>= 1500), P(>= 2000)), which avoids large errors.
+The predicted bracket is the MEDIAN of the averaged distribution; the confidence is the probability
+of that bracket. Chosen over the earlier plain logistic regression because it makes fewer large
+errors and its confidence is closer to the real hit rate (macro F1 is about the same).
+
+Evaluations:
+  1. 5-fold GroupKFold by company: postings of one company are never in both the training and the
+     validation fold, otherwise the model memorises the company's pay.
+  2. Time-based hold-out: train on the older postings, test on the most recent 20%. Reported for
+     all of them and for companies absent from training, which is the harder and more relevant
+     case: most postings without a stated salary come from companies that never state one.
+Metrics: accuracy, macro F1, within-one-bracket accuracy, mean absolute bracket error, and the
+confidence error (average gap between the stated confidence and the real hit rate).
 
 Features: title + description (TF-IDF), experience years, education level, category, region,
 contract types, languages. Rule-extracted seniority, managerial title and tools did not improve
 the score, so they are only evaluated with --compare-features.
 
-The best model is refit on all labeled jobs and predicts a bracket (with its probability) for
-jobs whose salary is 'confidential' or missing. With --write-db the predictions go to
-core.job_salary_prediction (a separate table: stated salaries in core.fact_job are never changed).
+The model is refit on all labeled jobs and predicts a bracket for jobs whose salary is
+'confidential' or missing. With --write-db the predictions go to core.job_salary_prediction
+(a separate table: stated salaries in core.fact_job are never changed).
 
     python -m src.models.train_salary
     python -m src.models.train_salary --write-db
@@ -36,7 +44,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from sklearn.linear_model import LogisticRegression, Ridge
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.model_selection import GroupKFold
 from sklearn.pipeline import Pipeline
@@ -52,7 +60,8 @@ NUMERIC = ["experience_min_years", "education_level", "log_desc_len", "experienc
 EXTRA_NUMERIC = ["n_tools", "managerial"]
 MULTI = ["categories", "employment_types", "languages", "region"]
 EXTRA_MULTI = ["seniority", "tools"]
-MODEL_NAME = "salary_bracket_v2"
+MODEL_NAME = "salary_bracket_v3"
+CHOSEN = "salary_mix"
 TEST_SHARE = 0.2
 
 CREATE_TABLE = """
@@ -128,23 +137,34 @@ def features(extra):
     ])
 
 
-class OrdinalRidge:
-    """Regression on the bracket index, rounded back to a bracket: respects the order of classes."""
+class SalaryMix:
+    """Average of a balanced multinomial and an ordinal logistic regression; predicts the median bracket."""
 
-    def __init__(self, extra=True, alpha=3.0):
-        self.pipe = Pipeline([("features", features(extra)), ("model", Ridge(alpha=alpha))])
+    def __init__(self, extra=False, C=0.5):
+        self.features = features(extra)
+        self.C = C
 
     def fit(self, X, y):
-        self.pipe.fit(X, y)
+        Z = self.features.fit_transform(X)
+        self.multinomial = LogisticRegression(max_iter=3000, C=self.C, class_weight="balanced").fit(Z, y)
+        self.thresholds = [LogisticRegression(max_iter=3000, C=self.C).fit(Z, y > k)
+                           for k in range(len(BRACKETS) - 1)]
         return self
 
+    def predict_proba(self, X):
+        Z = self.features.transform(X)
+        above = np.column_stack([m.predict_proba(Z)[:, 1] for m in self.thresholds])
+        above = np.minimum.accumulate(above, axis=1)          # P(pay >= b) can only decrease with b
+        above = np.hstack([np.ones((len(above), 1)), above, np.zeros((len(above), 1))])
+        return (self.multinomial.predict_proba(Z) + above[:, :-1] - above[:, 1:]) / 2
+
     def predict(self, X):
-        return np.clip(np.rint(self.pipe.predict(X)), 0, len(BRACKETS) - 1).astype(int)
+        return np.argmax(self.predict_proba(X).cumsum(axis=1) >= 0.5, axis=1)
 
 
-def logreg(extra):
+def logreg():
     return Pipeline([
-        ("features", features(extra)),
+        ("features", features(False)),
         ("model", LogisticRegression(max_iter=3000, C=2.0, class_weight="balanced")),
     ])
 
@@ -152,44 +172,64 @@ def logreg(extra):
 def candidates(extra=False):
     models = {
         "baseline_majority": lambda: DummyClassifier(strategy="most_frequent"),
-        "logreg_base": lambda: logreg(extra=False),
-        "ordinal_ridge_base": lambda: OrdinalRidge(extra=False),
+        "logreg (previous model)": logreg,
+        CHOSEN: SalaryMix,
     }
     if extra:
-        models["logreg_+seniority_tools"] = lambda: logreg(extra=True)
-        models["ordinal_ridge_+seniority_tools"] = lambda: OrdinalRidge(extra=True)
+        models["salary_mix_+seniority_tools"] = lambda: SalaryMix(extra=True)
     return models
 
 
-def scores(y_true, y_pred):
-    y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
+def confidence_error(hit, confidence, bins=10):
+    """Expected calibration error: average gap between confidence and hit rate, per confidence band."""
+    band = np.minimum((confidence * bins).astype(int), bins - 1)
+    return float(sum((band == b).mean() * abs(confidence[band == b].mean() - hit[band == b].mean())
+                     for b in np.unique(band)))
+
+
+def scores(y_true, y_pred, confidence):
     return {
         "accuracy": accuracy_score(y_true, y_pred),
         "macro_f1": f1_score(y_true, y_pred, average="macro", zero_division=0),
         "within_one_bracket": float((np.abs(y_true - y_pred) <= 1).mean()),
         "mean_abs_bracket_error": float(np.abs(y_true - y_pred).mean()),
+        "confidence_error": confidence_error(y_true == y_pred, confidence),
     }
 
 
 def show(name, r):
-    print(f"  {name:<32} acc {r['accuracy']:.3f} | macro F1 {r['macro_f1']:.3f} | "
-          f"within 1 {r['within_one_bracket']:.3f} | MAE {r['mean_abs_bracket_error']:.3f}")
+    print(f"  {name:<28} acc {r['accuracy']:.3f} | macro F1 {r['macro_f1']:.3f} | "
+          f"within 1 {r['within_one_bracket']:.3f} | MAE {r['mean_abs_bracket_error']:.3f} | "
+          f"conf. error {r['confidence_error']:.3f}")
+
+
+def predict(model, X):
+    """-> (bracket index, probability the model gives to that bracket)"""
+    pred = np.asarray(model.predict(X))
+    return pred, model.predict_proba(X)[np.arange(len(pred)), pred]
 
 
 def cross_validate(make_model, X, y, groups, folds=5):
-    pred = np.zeros(len(y), dtype=int)
+    pred, conf = np.zeros(len(y), dtype=int), np.zeros(len(y))
     for train_idx, val_idx in GroupKFold(n_splits=folds).split(X, y, groups):
         model = make_model().fit(X.iloc[train_idx], y[train_idx])
-        pred[val_idx] = model.predict(X.iloc[val_idx])
-    return pred
+        pred[val_idx], conf[val_idx] = predict(model, X.iloc[val_idx])
+    return pred, conf
 
 
-def time_holdout(make_model, labeled, y):
-    """Train on the oldest postings, test on the newest TEST_SHARE of them."""
+def time_holdout(models, labeled, y):
+    """Train on the oldest postings, test on the newest TEST_SHARE of them: all, and unseen companies."""
     cutoff = labeled["date_posted"].quantile(1 - TEST_SHARE)
-    train, test = labeled["date_posted"] < cutoff, labeled["date_posted"] >= cutoff
-    model = make_model().fit(labeled[train], y[train])
-    return scores(y[test], model.predict(labeled[test])), cutoff, int(train.sum()), int(test.sum())
+    train = (labeled["date_posted"] < cutoff).to_numpy()
+    test = labeled[~train]
+    unseen = ~test["company_key"].isin(set(labeled.loc[train, "company_key"])).to_numpy()
+    results = {"all": {}, "unseen_companies": {}}
+    for name, make in models.items():
+        pred, conf = predict(make().fit(labeled[train], y[train]), test)
+        results["all"][name] = scores(y[~train], pred, conf)
+        results["unseen_companies"][name] = scores(y[~train][unseen], pred[unseen], conf[unseen])
+    return {"test_from": f"{cutoff:%Y-%m-%d}", "train_jobs": int(train.sum()), "test_jobs": len(test),
+            "unseen_company_jobs": int(unseen.sum()), "results": results}
 
 
 def write_db(out):
@@ -199,7 +239,7 @@ def write_db(out):
         pk = dict(conn.execute(
             "SELECT source_job_id, job_pk FROM core.fact_job WHERE source_id = 1").fetchall())
         rows = [(pk[r.job_id], r.salary_bracket_pred, *BOUNDS[BRACKETS.index(r.salary_bracket_pred)],
-                 getattr(r, "confidence", None), MODEL_NAME)
+                 r.confidence, MODEL_NAME)
                 for r in out.itertuples() if r.job_id in pk]
         conn.cursor().executemany(UPSERT, rows)
         # a job that now states its salary must not keep an old prediction
@@ -215,7 +255,7 @@ def main():
     ap.add_argument("--write-db", action="store_true",
                     help="store the predictions in core.job_salary_prediction")
     ap.add_argument("--compare-features", action="store_true",
-                    help="also evaluate models using rule-extracted seniority and tools")
+                    help="also evaluate the model with rule-extracted seniority and tools")
     args = ap.parse_args()
 
     jobs = load_jobs(args.compare_features)
@@ -227,49 +267,42 @@ def main():
     print("Class counts:", {BRACKETS[k]: int(v) for k, v in zip(*np.unique(y, return_counts=True))})
 
     print("\n1) 5-fold cross-validation grouped by company")
-    results, cv_preds = {}, {}
+    results, cv = {}, {}
     for name, make in models.items():
-        cv_preds[name] = cross_validate(make, labeled, y, groups)
-        results[name] = scores(y, cv_preds[name])
+        cv[name] = cross_validate(make, labeled, y, groups)
+        results[name] = scores(y, *cv[name])
         show(name, results[name])
-
-    # macro F1 rounded to 0.01: smaller differences are noise at this sample size, and on a tie
-    # max() keeps the first, i.e. the simpler model (candidates are listed simple-first)
-    best = max((n for n in results if n != "baseline_majority"),
-               key=lambda n: round(results[n]["macro_f1"], 2))
-    print(f"\nBest model (macro F1): {best}")
-    cm = confusion_matrix(y, cv_preds[best], labels=range(len(BRACKETS)))
+    cm = confusion_matrix(y, cv[CHOSEN][0], labels=range(len(BRACKETS)))
+    print(f"\nConfusion matrix of {CHOSEN}:")
     print(pd.DataFrame(cm, index=[f"true {b}" for b in BRACKETS],
                        columns=[f"pred {b}" for b in BRACKETS]).to_string())
 
-    print(f"\n2) Time-based hold-out (newest {TEST_SHARE:.0%} of postings)")
-    holdout = {}
-    for name in ["baseline_majority", best]:
-        holdout[name], cutoff, n_train, n_test = time_holdout(models[name], labeled, y)
-        show(name, holdout[name])
-    print(f"  trained on {n_train} postings before {cutoff:%Y-%m-%d}, tested on {n_test} from that date on")
+    holdout = time_holdout(models, labeled, y)
+    print(f"\n2) Time-based hold-out: trained on {holdout['train_jobs']} postings before {holdout['test_from']}")
+    for part, n in [("all", holdout["test_jobs"]), ("unseen_companies", holdout["unseen_company_jobs"])]:
+        print(f" {part} ({n} postings)")
+        for name, r in holdout["results"][part].items():
+            show(name, r)
 
-    # refit on all labeled jobs, predict the jobs without a stated salary
-    model = models[best]().fit(labeled, y)
+    model = models[CHOSEN]().fit(labeled, y)
     unlabeled = jobs[jobs["salary_kind"] != "bracket"].reset_index(drop=True)
     out = unlabeled[["job_id", "title", "company", "salary_kind"]].copy()
-    out["salary_bracket_pred"] = [BRACKETS[i] for i in model.predict(unlabeled)]
-    if hasattr(model, "predict_proba"):
-        out["confidence"] = model.predict_proba(unlabeled).max(axis=1).round(3)
+    pred, conf = predict(model, unlabeled)
+    out["salary_bracket_pred"] = [BRACKETS[i] for i in pred]
+    out["confidence"] = conf.round(3)
 
     config.MODEL_DIR.mkdir(parents=True, exist_ok=True)
-    joblib.dump({"model": model, "brackets": BRACKETS, "name": best, "version": MODEL_NAME},
+    joblib.dump({"model": model, "brackets": BRACKETS, "name": CHOSEN, "version": MODEL_NAME},
                 config.SALARY_MODEL)
     out.to_csv(config.SALARY_PREDICTIONS, index=False, encoding="utf-8-sig")
     config.SALARY_METRICS.write_text(json.dumps({
         "task": "ordinal salary bracket classification (Tanitjobs, TND/month)",
         "brackets": BRACKETS,
         "labeled_jobs": len(labeled),
+        "model": CHOSEN,
         "cross_validation": {"method": "5-fold GroupKFold by company", "results": results},
-        "best": best,
-        "confusion_matrix_best": cm.tolist(),
-        "time_holdout": {"test_from": f"{cutoff:%Y-%m-%d}", "train_jobs": n_train,
-                         "test_jobs": n_test, "results": holdout},
+        "confusion_matrix": cm.tolist(),
+        "time_holdout": holdout,
     }, indent=2), encoding="utf-8")
     print(f"\nPredicted brackets for {len(out)} jobs without a stated salary:")
     print(out.groupby("salary_kind")["salary_bracket_pred"].value_counts().unstack(fill_value=0).to_string())

@@ -25,39 +25,54 @@ First-time database setup: `python -m src.database.init_db`. To inspect the data
 
 All paths and settings live in `config.py` (set your contact email in `USER_AGENT` before scraping).
 
-## Trained classifiers
+## Seniority, remote work and tools
 
-Create a larger labeling workbook containing new recent and representative jobs:
-
-```
-python -m src.evaluation.make_expanded_sample --size 200
-```
-
-Label the new rows in `data/gold/expanded_sample_labeled.xlsx` without looking at
-predictions. Keep the existing test sample untouched. Then train with the expanded
-labels:
+These come from the rules in `src/extraction/rules.py` (the pipeline stores their result). The
+command below scores them and compares them with the majority class and with a trained model
+(TF-IDF + Logistic Regression for seniority, + Linear SVM for remote work):
 
 ```
-python -m src.models.train_classifiers --train-set expanded
+python -m src.models.train_classifiers                     old 30-job test set
+python -m src.models.train_classifiers --test-set fresh    fresh test set, once labeled
 ```
 
-Train the three classical NLP models using the manually labeled development sample and
-evaluate them on the held-out test sample:
+| Accuracy / macro F1 | Rules | Trained model | Majority class |
+|---|---|---|---|
+| Seniority, test (25 jobs) | 0.80 / 0.63 | 0.80 / 0.64 | 0.72 / 0.21 |
+| Seniority, development (236 jobs) | 0.89 / 0.81 | 0.77 / 0.43 | 0.72 / 0.17 |
+| Remote, test (30 jobs) | 0.90 / 0.65 | 0.77 / 0.29 | 0.87 / 0.31 |
+| Remote, development (250 jobs) | 0.76 / 0.64 | 0.70 / 0.51 | 0.63 / 0.19 |
 
-```
-python -m src.models.train_classifiers
-```
+The development scores of the rules are optimistic (the rules were tuned on those labels), and the
+development jobs were chosen to contain many level and work-mode words, so they do not represent
+the usual postings. The old test set is too small to separate close methods. Jobs labeled `manager`
+are left out of the seniority score: the rules report management separately (`is_managerial`).
 
-The command trains TF-IDF + Logistic Regression for seniority and TF-IDF + Linear SVM
-for remote-work type. Tools are not learned: with ~120 distinct tools in ~260 labeled
-jobs most tools have only 1-2 examples, so a one-vs-rest classifier predicted nothing
-(F1 = 0). Tools come from the dictionary extractor (`detect_tools` in
-`src/extraction/rules.py`), scored on every labeled job (F1 ≈ 0.82, lenient match). This is
-NOT a held-out score: part of the dictionary was added after reading the errors on these same
-jobs, test set included. Without those additions the test set (30 jobs) scores F1 ≈ 0.53;
-a fair estimate needs newly labeled jobs. Models, test
-predictions, metrics and the list of tool errors (`tools_rule_errors.csv`) are saved
-under `data/models/`.
+Tools have no trained model: with ~120 distinct tools in ~260 labeled jobs, a one-vs-rest
+classifier predicted nothing (F1 = 0). The dictionary scores F1 ≈ 0.81 on the labeled jobs, but
+part of it was added after reading the errors on these same jobs, test set included; without those
+additions the 30 test jobs score F1 ≈ 0.53.
+
+**Fresh test set.** `data/gold/fresh_sample_labeled.xlsx` (made by
+`python -m src.evaluation.make_fresh_sample`) holds 200 never-labeled jobs: 150 random ones for the
+headline score and 50 containing a work-mode word, scored apart. It was labeled without looking at
+predictions, then reviewed against the Legend (`make_fresh_review`, flags taken from the Legend, not
+from the rules) into `fresh_reviewed_sample_labeled.xlsx`. Scores on the reviewed labels, with the
+rules as they were before seeing this set:
+
+| Fresh test set (reviewed labels) | Rules | Majority class |
+|---|---|---|
+| Seniority, 150 random jobs (accuracy / macro F1) | 0.88 / 0.70 | 0.79 / 0.18 |
+| Remote, 150 random jobs (accuracy) | 0.98 | 0.98 |
+| Remote, 50 work-mode jobs (accuracy) | 0.66 | 0.44 |
+| Management title, 26 managers in 150 jobs | precision 0.86, recall 0.92 | |
+| Tools (F1, micro) | 0.79 | |
+
+Only 4 of the 150 random postings state a work mode, so the random part cannot measure remote
+detection; the 50 work-mode jobs do. The remote rules were then fixed using errors seen on this set
+("presentiel", "base sur site", a work mode in the title, "hybrid in-office/remote"): the work-mode
+part rose to 0.92, but that figure is no longer a held-out score. The development jobs, not used for
+this fix, rose from 0.72 to 0.76. A new fresh sample is needed for a clean remote score.
 
 ## Salary bracket model
 
@@ -73,12 +88,22 @@ python -m src.models.train_salary --write-db   same, and store them in the datab
 - Features: title and description (TF-IDF), experience years, education level, category,
   region, contract types, languages. Rule-based seniority and tools were tested and did
   not improve the score; rerun that comparison with `--compare-features`.
-- Evaluation: 5-fold cross-validation grouped by company (a company's postings are never
-  in both training and validation), then a time-based hold-out (train on older postings,
-  test on the newest 20%). Compared against an "always the most frequent bracket" baseline.
-- Results (Logistic Regression): macro F1 ≈ 0.50 in cross-validation and ≈ 0.54 on the
-  newest postings, against 0.17 for the baseline; about 92% of predictions are at most one
-  bracket off in cross-validation (94% on the newest postings). `1500-2000` is the hardest class.
+- Model: the average of a balanced logistic regression and an ordinal one; the prediction is the
+  median bracket, the confidence its probability.
+- Evaluation: 5-fold cross-validation grouped by company, then a time-based hold-out (train on
+  older postings, test on the newest 20%), reported for all postings and for companies the model
+  has never seen. The second is closer to real use: about 85% of the postings without a stated
+  salary come from companies that never state one.
+
+| Accuracy / macro F1 / within one bracket | New model | Previous (logistic regression) | Majority class |
+|---|---|---|---|
+| Cross-validation (1,458 jobs) | 0.62 / 0.51 / 0.94 | 0.62 / 0.50 / 0.92 | 0.48 / 0.16 / 0.79 |
+| Newest postings (296 jobs) | 0.65 / 0.53 / 0.95 | 0.63 / 0.54 / 0.94 | 0.51 / 0.17 / 0.85 |
+| Newest, unseen companies (164 jobs) | 0.63 / 0.48 / 0.94 | 0.57 / 0.40 / 0.92 | 0.53 / 0.17 / 0.88 |
+
+- The confidence is off by about 4 points on average (9 before). `1500-2000` stays the weakest
+  class: right about 28% of the time when predicted. The design was chosen using these same jobs,
+  so expect slightly lower scores on new data.
 - Output: `data/models/salary_bracket_*` (model, metrics, predictions) and the table
   `core.job_salary_prediction`. Estimates are kept apart from stated salaries in
   `core.fact_job` and from Adzuna's own estimates; show them as "estimated" and consider
@@ -101,7 +126,7 @@ src/
   database/          schema setup, loading, extraction, summaries
   extraction/        rules.py (dictionary and rules), llm_extract.py (Ollama)
   evaluation/        labeling samples and scoring
-  models/            train_classifiers.py (seniority, remote), train_salary.py (salary bracket)
+  models/            train_classifiers.py (rules vs trained models), train_salary.py (salary bracket)
   quality/           data-quality checks
   export/            JSON exports and web app import
   pipeline/          run_daily.py

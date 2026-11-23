@@ -1,31 +1,31 @@
-﻿job_id,seniority_true,seniority_pred,remote_true,remote_pred,tools_true,tools_pred
-2062942,manager,unspecified,unspecified,unspecified,,
-2062440,unspecified,unspecified,unspecified,unspecified,,
-2036516,unspecified,senior,unspecified,unspecified,,
-2063303,unspecified,unspecified,unspecified,unspecified,WhatsApp,
-2051237,unspecified,unspecified,unspecified,unspecified,,
-2067296,junior,junior,unspecified,unspecified,Blender,Blender
-2052996,unspecified,unspecified,unspecified,unspecified,,Tableau
-2047548,manager,unspecified,unspecified,unspecified,,
-2063481,unspecified,unspecified,onsite,unspecified,,
-2063101,unspecified,unspecified,unspecified,unspecified,Excel,Excel
-2061915,unspecified,unspecified,unspecified,unspecified,,
-2047730,unspecified,unspecified,unspecified,unspecified,Assyst CAD,Assyst CAD
-2071328,unspecified,unspecified,onsite,unspecified,,
-2069457,intern,intern,unspecified,onsite,"n8n, Make, Zapier, OpenAI, Gemini, Claude, LangChain, Docker","n8n, Make, Zapier, OpenAI, Gemini, Claude, Python, JavaScript, TypeScript, LangChain, Docker, GitHub"
-2056903,unspecified,unspecified,unspecified,unspecified,,
-2047496,manager,unspecified,onsite,unspecified,Excel,Excel
-2058497,unspecified,unspecified,unspecified,onsite,,
-2066233,manager,unspecified,unspecified,unspecified,,
-2066942,junior,junior,unspecified,unspecified,,
-2057673,unspecified,unspecified,unspecified,unspecified,,
-2051137,unspecified,unspecified,unspecified,unspecified,,
-2049326,unspecified,junior,unspecified,onsite,,
-2071563,unspecified,unspecified,unspecified,unspecified,,
-2068884,senior,unspecified,unspecified,unspecified,,
-2060968,junior,unspecified,unspecified,unspecified,Excel,Excel
-2053212,junior,unspecified,unspecified,unspecified,"Excel, Word, Outlook","Excel, Word, Outlook"
-2048908,unspecified,unspecified,unspecified,unspecified,,
-2054561,manager,unspecified,unspecified,unspecified,,
-2059650,unspecified,junior,remote,unspecified,"Meta Ads, Facebook, Instagram",Meta Ads
-2063751,senior,unspecified,unspecified,unspecified,,
+﻿job_id,title,seniority,rules_seniority,remote,rules_remote,rules_managerial,tools,rules_tools,trained_seniority,trained_remote
+2062942,Directeur administratif et Financier- DAF (H/F) | Tunis,manager,unspecified,unspecified,unspecified,True,,,unspecified,unspecified
+2062440,Chauffeur / Coursier (H/F) | Mégrine,unspecified,junior,unspecified,unspecified,False,,,unspecified,unspecified
+2036516,Data Engineer ( KLNWX) (H/F) | Ariana,unspecified,unspecified,unspecified,unspecified,False,,,senior,unspecified
+2063303,Chargé(e) de Suivi Postopératoire (H/F) | Tunis,unspecified,unspecified,unspecified,unspecified,False,WhatsApp,,unspecified,unspecified
+2051237,ISEG Tunis recrute un(e) Professeur(e) de Comptabilité,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2067296,Designer 3D / Modeleur 3D (H/F) | Tunis,junior,unspecified,unspecified,unspecified,False,Blender,Blender,junior,unspecified
+2052996,Ingénieur Qualité Produit et Fournisseur,unspecified,unspecified,unspecified,unspecified,False,,Tableau,unspecified,unspecified
+2047548,Juridical & Legal Affairs Manager,manager,unspecified,unspecified,unspecified,True,,,unspecified,unspecified
+2063481,Electricien (H/F) | Sousse,unspecified,unspecified,onsite,unspecified,False,,,unspecified,unspecified
+2063101,Aide Comptable (H/F) | Akouda,unspecified,junior,unspecified,unspecified,False,Excel,Excel,unspecified,unspecified
+2061915,Techniciens Electronique (H/F) | Tunis,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2047730,TECHNICIEN DÉVELOPPEMENT PRODUIT ET PROTOTYPAGE- Basé à Bizerte,unspecified,unspecified,unspecified,unspecified,False,Assyst CAD,Assyst CAD,unspecified,unspecified
+2071328,Commercial(e) terrain motorisé(e) (H/F) – matériel de sécurité | Tunis,unspecified,unspecified,onsite,unspecified,False,,,unspecified,unspecified
+2069457,Stage PFE – IA & Automatisation (H/F) | El Kantaoui,intern,intern,unspecified,unspecified,False,"n8n, Make, Zapier, OpenAI, Gemini, Claude, LangChain, Docker","n8n, Make, Zapier, OpenAI, Gemini, Claude, Python, JavaScript, TypeScript, LangChain, Docker, GitHub",intern,onsite
+2056903,Architecte d’Intérieur (F),unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2047496,Pilote de Chantier / Responsable Suivi de Travaux – Promotion Immobilière,manager,unspecified,onsite,unspecified,True,Excel,Excel,unspecified,unspecified
+2058497,Téléconseillers Service Client,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,onsite
+2066233,Chef de Buanderie (H/F) | Hammam Sousse,manager,unspecified,unspecified,unspecified,True,,,unspecified,unspecified
+2066942,Comptable Junior (H/F) | Tunis,junior,junior,unspecified,unspecified,False,,,junior,unspecified
+2057673,Dessinateur(trice)-concepteur(trice) Métaux ouvrés et petite structure d’acier,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2051137,"Commercial(e) – Industrie Cosmétique, Emballage & Fragrance",unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2049326,Chargé(e)s de Recouvrement (H/F),unspecified,unspecified,unspecified,unspecified,False,,,unspecified,onsite
+2071563,Imprimeur(se) flexographe (H/F) – films plastiques | Ksibet El Mediouni,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2068884,Gestionnaire du stock dans une grande quincaillerie (H/F) | Khzema,senior,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2060968,Magasinier (H/F) – HOTEL | Khzema,junior,junior,unspecified,unspecified,False,Excel,Excel,unspecified,unspecified
+2053212,Assistant Import H/F,junior,junior,unspecified,unspecified,False,"Excel, Word, Outlook","Excel, Word, Outlook",unspecified,unspecified
+2048908,Suivi Commercial & Logistique,unspecified,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2054561,Pilote Production (H/F),manager,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
+2059650,Spécialiste Meta Ads – Facebook & Instagram | 100 % Télétravail MK01,unspecified,unspecified,remote,remote,False,"Meta Ads, Facebook, Instagram",Meta Ads,unspecified,unspecified
+2063751,"Ingénieurs Consultants Freelance (H/F) – Projets Photovoltaïques (Hydraulique, Géotechnique, VRD) | Tunis",senior,unspecified,unspecified,unspecified,False,,,unspecified,unspecified
